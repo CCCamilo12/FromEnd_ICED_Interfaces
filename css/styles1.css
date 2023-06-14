@@ -1,0 +1,224 @@
+#name::placeholder {
+    font-size: 160%;
+  }
+  
+
+header {
+    width: 100%;
+    height:80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px;
+    color: azure;
+}
+
+
+
+.titulo{
+    color: white;
+}
+  
+.imagen-izquierda {
+    
+    max-width: 5%;
+    margin-right: 50px;
+
+}
+  
+.imagen-derecha {
+    max-width: 5%;
+    margin-left: 50px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: #dfe9f5;
+
+}
+
+
+.wrapper{
+  
+    width: 400px;
+    padding: 2rem ;
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 10px;
+    text-align:  center;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, );
+}
+
+h1{
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 1.2rem;
+}
+
+
+form input{
+    width: 95%;
+    outline: none;
+    border: 1px solid white;
+    padding:  20px 30px; /* Aumentar el valor del padding en 10px */
+    margin:  10px;
+    border-radius: 20px;
+    background:  #eedede9a;
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  margin-top: 1.8rem;
+  padding: 10px 0;
+  border-radius: 20px;
+  outline: none;
+  width: 90%;
+  color: #fff;
+  cursor: pointer;
+  background: rgb(15, 174, 223);
+  font-size: 25px;
+}
+
+/*animacion del boton*/
+
+button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(to right, #32d1d1b7, #00ffffbb, #b50be0af, #440be0a8 );
+  animation: line-animation 2s linear infinite;
+}
+
+@keyframes line-animation {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+  
+}
+
+
+.recover{
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 1rem 1.3rem 0 0;
+}
+
+.recover a {
+  text-decoration: none;
+  color: #464647;
+}
+
+
+.recordar{
+  margin-top: 20px;
+}
+
+.recordar a{
+  
+  font-size: 1.1rem;
+  margin: 1rem 1.3rem 0 0;
+  text-decoration: none;
+  color: #076bee;
+
+}
+
+
+#checkbox {
+  transform: scale(1.2); /* ajusta el valor según lo que necesites  para el tamaño del checkbox*/
+}
+
+
+label {
+  margin-left: 10px; /* mueve que tan lejos quiero el boton chexbox*/
+}
+
+.terms input{
+    height: 1em;
+    width: 1em;
+    vertical-align: middle;
+    cursor: pointer;
+   
+}
+
+.terms label{
+    font-size: 1.4rem;
+}
+
+.terms a{
+    color: rgb(23, 204, 236);
+}
+
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+      width: 90%;
+    }
+  }
+  
+
+@media screen and (max-width: 600px){
+
+    .titulo{
+        text-align: center;
+        font-size: 1rem;
+    }
+     
+    h1 {
+      font-size: 1.5rem;
+    }
+    form input {
+      font-size: 14px;
+    }
+    button {
+      font-size: 1rem;
+    }
+  }
+  
+
+@media screen and (max-width: 600px) {
+    .imagen-izquierda {
+      max-width: 20%;
+      margin-right: 10px;
+    }
+    .imagen-derecha {
+      max-width: 20%;
+      margin-left: 10px;
+    }
+  }
+
+
+
+
+
+.contenedor {
+    background-color: red;
+    float: left;
+    width: 60%;
+    height: 200px;
+}
+
+.otro-contenedor {
+    background-color: yellow;
+    float: left;
+    width: 40%;
+    height: 200px;
+}
+
+section{
+    padding: 20px;
+}
