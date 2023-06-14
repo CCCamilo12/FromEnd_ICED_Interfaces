@@ -9,7 +9,13 @@
     <script src="https://kit.fontawesome.com/3d7a846b01.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+</head>
+<body id="body" style="max-height: 100vh; overflow-y: scroll;">
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+    </header>
 
     <div class="menu__side" id="menu_side">
         <div class="options__menu"> 
@@ -19,25 +25,25 @@
                     <h4>Inicio</h4>
                 </div>
             </a>
-            <a href="/index1.html">
+            <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-cloud"></i>
                     <h4>Portafolio</h4>
                 </div>
             </a>
-            <a href="/index2.html">
+            <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-database"></i>
                     <h4>Cursos</h4>
                 </div>
             </a>
-            <a href="/index3.html">
+            <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-code"></i>
                     <h4>Blog</h4>
                 </div>
             </a>
-            <a href="/index4.html">
+            <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-users"></i>
                     <h4>Contacto</h4>
@@ -58,78 +64,46 @@
         </div>
     </div>
 
-
-
-    <style>
-        /* Estilos personalizados para la barra de búsqueda */
-        .search__bar {
-          margin-bottom: 20px;
-        }
-        
-        .search__bar input[type="text"] {
-          padding: 10px;
-          width: 200px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-        
-        .search__bar button {
-          padding: 10px 20px;
-          background-color: #4CAF50;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-        
-        .search__bar button:hover {
-          background-color: #45a049;
-        }
-    </style>
-</head>
-<body id="body" style="max-height: 100vh; overflow-y: scroll;">
-    <header>
-        <div class="icon__menu">
-            <i class="fas fa-bars" id="btn_open"></i>
-        </div>
-    </header>
-
     <section class="cont">
-        <div class="encabezado">
-            <h1>LISTA DE DISPOSITIVOS EN PRESTAMO</h1>
-        </div>
+
         <div class="contenedor1">
-            <h3>Cantidad de dispositivos en el centro</h3>
-            <div class="search__bar">
-                <input type="text" id="search_input" placeholder="Buscar dispositivo">
-                <button id="search_button">Buscar</button>
-            </div>
-            <!-- Creación de tabla de datos -->
-            <table id="tabla1">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Dispositivo</th>
-                        <th>Modelo</th>
-                        <th>Color</th>
-                        <th>Serial</th>
-                        <th>Estado</th>
-                        <th>Especialidad</th>
-                    </tr>
-                </thead>
-                <tbody id="tabla1-body"></tbody>
-            </table>
-            <!-- Final de la tabla -->
+            <h1>Lista de dispositivos en el centro</h1>
         </div>
+        
         <div class="contenedor2">
-            <h3>Portátiles disponibles</h3>
+            <div class="busqueda">
+                <input type="text" placeholder="buscar" required>
+            </div>
+            
+            <div>
+                <table id="tabla1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Dispositivo</th>
+                            <th>Modelo</th>
+                            <th>Color</th>
+                            <th>Serial</th>
+                            <th>Estado</th>
+                            <th>Especialidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla1-body"></tbody>
+                </table>
+            </div>
         </div>
-        <div class="contenedor3">C</div>
-        <div class="contenedor4">
-            <h1>Recuerda entregar el dispositivo acorde a la ficha del estudiante</h1>
-        </div>
+
+        <div class="contenedor3">A</div>
+        <div class="contenedor4">B</div>
+        <div class="contenedor5">C</div>
+        
+
     </section>
 
+
+
+
+   
     <script src="js/script.js"></script>
     <script src="js/listar.js"></script>
 </body>
