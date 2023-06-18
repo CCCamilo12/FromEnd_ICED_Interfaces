@@ -18,16 +18,16 @@ body {
     backdrop-filter: blur(5px);
 }
 
-
-
 .container h2 {
     color: #333333;
     margin-bottom: 20px;
     font-size: 32px;
 }
 
+.container input[type="text"],
 .container input[type="email"],
-.container input[type="password"] {
+.container input[type="password"],
+.container input[type="tel"] {
     width: 80%;
     padding: 19px;
     margin-bottom: 20px;
@@ -51,7 +51,7 @@ body {
     animation: color-change 3s infinite;
 }
 
-.container p{
+.container p {
     font-size: 20px;
 }
 
@@ -81,8 +81,3 @@ body {
     50% { background-color: #c972dd; }
     100% { background-color: #406298; }
 }
-
-
-
-
-
