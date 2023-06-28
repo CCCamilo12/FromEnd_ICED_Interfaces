@@ -1,9 +1,10 @@
+//TABLA DONDE SE LISTAN LOS DATOS QUE AGREGAMOS
 $(document).ready(function() {
     $('body').load('load', function(){
         let tablaBody = document.querySelector('#tabla1-body');
         tablaBody.innerHTML = ''; // Clear the table body before populating new data
         $.ajax({
-            url: "http://localhost:8080/listarequipos",
+            url: "http://localhost:8080/listarEquipos",
             type: "GET",
             dataType: "JSON",
             success: function(respuesta) {
@@ -24,7 +25,7 @@ $(document).ready(function() {
     });
 });
 
-
+//AGREGAR EQUIPO
 $('#Agregar').on('click',function(){
 
     let datos={
@@ -35,7 +36,6 @@ $('#Agregar').on('click',function(){
         equi_serial:$('#equi_serial').val(),    
         equi_estado:$('#equi_estado').val(),
         equi_especialidad:$('#equi_especialidad').val(),
-
 
     }
     let datosenvio=JSON.stringify(datos)
@@ -52,3 +52,31 @@ $('#Agregar').on('click',function(){
         }
     })
 })
+
+//BUSCAR EQUIPO
+$('#BuscarEquipo').on('click', function(){
+    let tablaEquipos = document.querySelector('#tabla1-body');
+    tablaEquipos.innerHTML = ''; 
+    let dato = $("#id_equipoo").val();
+    $.ajax({
+        url: "http://localhost:8080/BuscarEquipo/" + dato,
+        type: "GET",
+        datatype: JSON,
+        success:function(respuesta){
+            if (respuesta != dato) {
+                tablaEquipos.innerHTML += '<tr>' +
+                '<td>' + respuesta.equ_id + '</td>' +
+                '<td>' + respuesta.equi_tipo + '</td>' +
+                '<td>' + respuesta.equi_modelo + '</td>' +
+                '<td>' + respuesta.equi_color + '</td>' +
+                '<td>' + respuesta.equi_serial + '</td>' +
+                '<td>' + respuesta.equi_estado + '</td>' +
+                '<td>' + respuesta.equi_especialidad + '</td>' +
+                '</tr>'; 
+            }else{
+            alert("el equipo no existe")
+            }
+            
+        }
+    });
+});

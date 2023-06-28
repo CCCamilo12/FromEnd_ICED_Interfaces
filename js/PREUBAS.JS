@@ -75,7 +75,7 @@ $(document).ready(function(){
             }
         })
 
-    })
+    });
 
 
     $('#Eliminar').on('click', function(){
