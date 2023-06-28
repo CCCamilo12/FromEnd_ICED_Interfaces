@@ -23,3 +23,33 @@ $(document).ready(function() {
         });
     });
 });
+
+
+$('#AgregarUsuario').on('click',function(){
+
+    let datosUsario={
+        usu_documento:$('#usu_documento').val(),
+        usu_nombre:$('#usu_nombre').val(),
+        usu_apellido:$('#usu_apellido').val(),
+        usu_tipo:$('#usu_tipo').val(),
+        usu_celular:$('#usu_celular').val(),    
+        usu_correo:$('#usu_correo').val(),
+        usu_ficha:$('#usu_ficha').val(),
+
+
+    }
+    let datosenvio=JSON.stringify(datosUsario)
+    console.log(datosUsario)
+    console.log(datosenvio)
+    $.ajax({
+        url: "http://localhost:8080/InsertarUsuario/",
+        type: "POST",
+        data: datosenvio,
+        contentType: "application/JSON",
+        datatype: JSON,
+        success: function(respuesta){
+            alert(respuesta)
+        }
+    })
+})
+
