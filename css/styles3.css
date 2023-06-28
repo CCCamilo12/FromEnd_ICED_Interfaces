@@ -215,17 +215,12 @@ main{
     margin: 30px;
 }
 
-.busqueda{
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-}
 
 .contenedor2{
     background-color: rgb(255, 255, 255);
     grid-column: 1/8;
-    grid-row: 3/14;
-    border-radius: 6%;
+    grid-row: 3/18;
+    border-radius: 1%;
     overflow-y: auto;
     overflow-x: hidden;
     
@@ -260,61 +255,153 @@ table th {
 .contenedor3 {
     background-color: rgb(255, 255, 255);
     grid-column: 8/12;
-    grid-row: 3/9;
+    grid-row: 3/12;
     border-radius: 5%;
     padding: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-#formulario {
-    width: 100%;
-    max-width: 200px; /* Ajusta el ancho máximo del formulario según tu preferencia */
+.contenedor3 h1{
+    margin-bottom: 30px;
 }
 
-
-/* Add CSS styles to the input fields in the form */
-
-#formulario .form-control {
-    margin-bottom: 10px;
-    padding: 8px;
-    border-radius: 5px;
+#equi_tipo{
     border: 1px solid #ccc;
-    font-size: 14px;
-    width: 100%;
-    max-width: 250px;
-    height: 30px;
+    border-radius: 25px;
+    padding: 20px;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 25px;
+    margin-top: -10px;
 }
 
-#formulario .btn-primary {
-    padding: 8px;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
+#equi_modelo{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 25px;
+    margin-top: -10px;
+  
+
+}
+
+#equi_color{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 25px;
+    margin-top: -10px; 
+    
+
+}
+
+#equi_serial{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 25px;
+    margin-top: -10px;
+    
+}
+
+#equi_estado{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 25px;
+    margin-top: -10px;
+
+}
+
+#equi_especialidad{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 25px;
+    margin-top: -10px;
+   
+
+}
+
+
+#Agregar {
     border: none;
+    background-color: #b491ce;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 350px;
+    height: 50px;
+    color: #ffffff;
+    font-weight: bold;
     cursor: pointer;
+    margin-top: -10px;
+    transition: background-color 0.3s ease; 
 }
 
-#formulario .btn-primary:hover {
-    background-color: #0056b3;
+
+#Agregar:hover {
+    background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
 }
 
 
 
 
-
-
-
-.contenedor4{
-    background-color: rgb(255, 255, 255);
+.contenedor4 {
+    background-color: #ffffff;
     grid-column: 8/12;
-    grid-row: 9/14;
+    grid-row: 12/18;
     border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    
 }
 
+.contenedor4 h1 {
+    margin-bottom: 45px;
+}
+
+#id_equipoo {
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#BuscarEquipo {
+    border: none;
+    background-color: #b491ce;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 300px;
+    height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px;
+    transition: background-color 0.3s ease; 
+}
+
+#BuscarEquipo:hover {
+    background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
+}
 
 
 
@@ -331,7 +418,6 @@ table th {
   
 }
 
-/*contenido del contenedor4 */
 
 
 
@@ -348,6 +434,8 @@ table th {
     width: 250px;
 }
 
+
+/* responsive */
 
 @media screen and (max-width: 760px){
     .body_move{
