@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="es-co">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú lateral responsive</title>
-    <link rel="stylesheet" href="/css/styles3.css">
+    <link rel="stylesheet" href="/css/styles6.css">
     <script src="https://kit.fontawesome.com/3d7a846b01.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body id="body" style="max-height: 100vh; overflow-y: scroll;">
+<body id="body">
+    
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -24,28 +25,28 @@
 
         <div class="options__menu">	
 
-            <a href="/index3.html" class="selected" >
+            <a href="/index3.html"  >
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
                     <h4>Disositivos</h4>
                 </div>
             </a>
 
-            <a href="/index4.html">
+            <a href="/index4.html" >
                 <div class="option">
                     <i class="fa-solid fa-cloud"></i>
                     <h4>Usuarios</h4>
                 </div>
             </a>
             
-            <a href="/index5.html">
+            <a href="/index5.html" >
                 <div class="option">
                     <i class="fa-solid fa-database"></i>
                     <h4>Prestamos</h4>
                 </div>
             </a>
 
-            <a href="/index6.html">
+            <a href="/index6.html" class="selected">
                 <div class="option">
                     <i class="fa-solid fa-code"></i>
                     <h4>Saciones</h4>
@@ -77,74 +78,44 @@
 
     </div>
 
-
     <section class="cont">
 
         <div class="contenedor1">
-            <h1>Lista de dispositivos en el centro</h1>
+            <h1>Lista de saciones</h1>
         </div>
         
-        <div class="contenedor2">    
+        <div class="contenedor2">
+            
             <div>
+                <!-- Creación de tabla de datos -->
                 <table id="tabla1">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Dispositivo</th>
-                            <th>Modelo</th>
-                            <th>Color</th>
-                            <th>Serial</th>
-                            <th>Estado</th>
-                            <th>Especialidad</th>
+                            <th>Documento</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Tipo</th>
+                            <th>Celular</th>
+                            <th>Correo</th>
+                            <th>Ficha</th>
                         </tr>
                     </thead>
-                    <tbody id="tabla1-body"></tbody>
+                    <tbody id="tabla2-body"></tbody>
                 </table>
+                <!-- Final de la tabla -->
             </div>
         </div>
 
-        <div class="contenedor3">
-
-            <form action="" id="formulario">
-                <div class="mb-3">
-                <input type="number" class="form-control" id="equ_id" name="id del equipo" placeholder="Id">
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_tipo" name ="tipo de equipo" placeholder="Tipo">
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_modelo" name ="modelo de equipo" placeholder="Modelo">
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_color" name="color de equipo" placeholder="Color">
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_serial" name="serial de equipo" placeholder="Serial">
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_estado" name="Estado del equipo" placeholder="Estado">
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_especialidad" name="Especialidad del equipo" placeholder="Especialidad">
-                </div>
-                <div class="mb-3">
-                    <button type="button" id="Agregar" class=" btn btn-primary w-100 fs-5 mb-3">Insertar Equipo</button>
-                </div>
-                </form>
-
-
-        </div>
+        <div class="contenedor3">A</div>
         <div class="contenedor4">B</div>
         <div class="contenedor5">C</div>
         
 
     </section>
+    
+      
 
 
 
-
-   
-    <script src="js/script.js"></script>
-    <script src="js/listar.js"></script>
+    <script src="/js/script.js"></script>
 </body>
-</html>
