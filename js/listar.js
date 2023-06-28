@@ -61,9 +61,9 @@ $('#BuscarEquipo').on('click', function(){
     $.ajax({
         url: "http://localhost:8080/BuscarEquipo/" + dato,
         type: "GET",
-        datatype: JSON,
+        dataType: "json",
         success:function(respuesta){
-            if (respuesta != dato) {
+            if (respuesta.hasOwnProperty('equ_id')) {
                 tablaEquipos.innerHTML += '<tr>' +
                 '<td>' + respuesta.equ_id + '</td>' +
                 '<td>' + respuesta.equi_tipo + '</td>' +
@@ -73,10 +73,17 @@ $('#BuscarEquipo').on('click', function(){
                 '<td>' + respuesta.equi_estado + '</td>' +
                 '<td>' + respuesta.equi_especialidad + '</td>' +
                 '</tr>'; 
-            }else{
-            alert("el equipo no existe")
+            } else {
+               alert("No se encontró el equipo en la base de datos");
             }
-            
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 404) {
+                alert("No se encontró el equipo en la base de datos");
+            } else {
+                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+            }
         }
     });
 });
+
