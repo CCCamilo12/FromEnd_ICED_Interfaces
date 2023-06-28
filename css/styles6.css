@@ -203,6 +203,7 @@ main{
     grid-row: 1/3;
     text-align: center;
     font-size: 18px;
+    border-radius: 10px;
 
 
 }
@@ -214,11 +215,6 @@ main{
     margin: 30px;
 }
 
-.busqueda{
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-}
 
 .contenedor2{
     background-color: rgb(255, 255, 255);
@@ -263,6 +259,8 @@ table th {
     border-radius: 5%;
     
 }
+
+
 .contenedor4{
     background-color: rgb(255, 255, 255);
     grid-column: 8/12;
