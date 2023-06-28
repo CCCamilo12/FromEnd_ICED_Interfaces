@@ -24,17 +24,17 @@ $(document).ready(function() {
     });
 });
 
-
+//Agregar Usuario
 $('#AgregarUsuario').on('click',function(){
-
+    alert("holaa")
     let datosUsario={
-        usu_documento:$('#usu_documento').val(),
-        usu_nombre:$('#usu_nombre').val(),
-        usu_apellido:$('#usu_apellido').val(),
-        usu_tipo:$('#usu_tipo').val(),
-        usu_celular:$('#usu_celular').val(),    
-        usu_correo:$('#usu_correo').val(),
-        usu_ficha:$('#usu_ficha').val(),
+        usu_Documento:$('#usu_Documento').val(),
+        usu_Nombre:$('#usu_Nombre').val(),
+        usu_Apellido:$('#usu_Apellido').val(),
+        usu_Tipo:$('#usu_Tipo').val(),
+        usu_Celular:$('#usu_Celular').val(),    
+        usu_Correo:$('#usu_Correo').val(),
+        usu_Ficha:$('#usu_Ficha').val(),
 
 
     }
