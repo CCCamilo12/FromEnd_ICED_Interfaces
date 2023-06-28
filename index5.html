@@ -25,14 +25,14 @@
 
         <div class="options__menu">	
 
-            <a href="/index3.html"  >
+            <a href="/index3.html">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
-                    <h4>Disositivos</h4>
+                    <h4>Dispositivos</h4>
                 </div>
             </a>
 
-            <a href="/index4.html" >
+            <a href="/index4.html">
                 <div class="option">
                     <i class="fa-solid fa-cloud"></i>
                     <h4>Usuarios</h4>
@@ -81,7 +81,7 @@
     <section class="cont">
 
         <div class="contenedor1">
-            <h1>Lista de prestamos</h1>
+            <h1>Lista de préstamos</h1>
         </div>
         
         <div class="contenedor2">
@@ -89,15 +89,16 @@
             <div>
                 <!-- Creación de tabla de datos -->
                 <table id="tabla1">
-                    <thead>
+                    <thead> 
                         <tr>
-                            <th>Documento</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Tipo</th>
-                            <th>Celular</th>
-                            <th>Correo</th>
-                            <th>Ficha</th>
+                            <th>ID</th>
+                            <th>Fecha de Entrega</th>
+                            <th>Fecha de Devolución</th>
+                            <th>Hora de Entrega</th>
+                            <th>Hora de Devolución</th>
+                            <th>Tiempo Límite</th>
+                            <th>Observaciones de Entrega</th>
+                            <th>Observaciones Recibidas</th>
                         </tr>
                     </thead>
                     <tbody id="tabla2-body"></tbody>
@@ -112,11 +113,7 @@
         
 
     </section>
-    
-      
 
-
-
-    <script src="/js/script.js"></script>
+    <script src="/js/ListarPrestamos.js"></script>
 </body>
 </html>
