@@ -1,7 +1,8 @@
+//Listar datos de Usuarios
 $(document).ready(function() {
     $('body').load('load', function(){
         let tablaBody = document.querySelector('#tabla2-body');
-        tablaBody.innerHTML = ''; // Clear the table body before populating new data
+        tablaBody.innerHTML = '';
         $.ajax({
             url: "http://localhost:8080/ListarUsuarios",
             type: "GET",
@@ -26,7 +27,6 @@ $(document).ready(function() {
 
 //Agregar Usuario
 $('#AgregarUsuario').on('click',function(){
-    alert("holaa")
     let datosUsario={
         usu_Documento:$('#usu_Documento').val(),
         usu_Nombre:$('#usu_Nombre').val(),
@@ -35,8 +35,6 @@ $('#AgregarUsuario').on('click',function(){
         usu_Celular:$('#usu_Celular').val(),    
         usu_Correo:$('#usu_Correo').val(),
         usu_Ficha:$('#usu_Ficha').val(),
-
-
     }
     let datosenvio=JSON.stringify(datosUsario)
     console.log(datosUsario)
@@ -53,3 +51,36 @@ $('#AgregarUsuario').on('click',function(){
     })
 })
 
+//BUSCAR USUARIO
+$('#BuscarUsuario').on('click',function(){
+    let tablaUsuario = document.querySelector('#tabla2-body');
+    tablaUsuario.innerHTML = ''; 
+    let dato = $("#id_usuarioo").val();
+        $.ajax({
+            url: "http://localhost:8080/BuscarUsuario/" + dato,
+            type: "GET",
+            dataType: "json",
+            success: function(respuesta) {
+                if (respuesta.hasOwnProperty('usu_Documento')){
+                    tablaUsuario.innerHTML += '<tr>' +
+                        '<td>' + respuesta.usu_Documento + '</td>' +
+                        '<td>' + respuesta.usu_Nombre + '</td>' +
+                        '<td>' + respuesta.usu_Apellido + '</td>' +
+                        '<td>' + respuesta.usu_Tipo + '</td>' +
+                        '<td>' + respuesta.usu_Celular + '</td>' +
+                        '<td>' + respuesta.usu_Correo + '</td>' +
+                        '<td>' + respuesta.usu_Ficha + '</td>' +
+                        '</tr>';
+                }else{
+                    alert("No se encontró el usuario en la base de datos");
+                }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 404) {
+                alert("No se encontró el equipo en la base de datos");
+            } else {
+                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+            }
+        }
+    });
+});
