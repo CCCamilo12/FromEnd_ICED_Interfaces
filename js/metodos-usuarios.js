@@ -84,3 +84,24 @@ $('#BuscarUsuario').on('click',function(){
         }
     });
 });
+
+
+// Eliminar Usuario
+$('#EliminarUsuario').on('click',function(){
+    let documento = $('#documento_usuario').val();
+    $.ajax({
+        url: "http://localhost:8080/EliminarUsuario/" + documento,
+        type: "DELETE",
+        success: function(respuesta){
+            alert(respuesta);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 404) {
+                alert("No se encontró el usuario en la base de datos");
+            } else {
+                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+            }
+        }
+    });
+});
+

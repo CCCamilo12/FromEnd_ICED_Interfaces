@@ -403,6 +403,39 @@ table th {
 
 }
 
+.contenedor5 h1 {
+    margin-bottom: 100px;
+}
+
+#codigo_equipo{
+
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+
+#EliminarEquipo{
+    border: none;
+    background-color: #b491ce;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 300px;
+    height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px;
+    transition: background-color 0.3s ease; 
+}
+
+#EliminarEquipo:hover {
+    background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
+}
 
 .contenedor6{
     background-color: #ffffff;
