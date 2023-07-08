@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-co">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body id="body">
-    
+<body id="body" style="max-height: 100vh; overflow-y: scroll;">
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -84,9 +83,7 @@
         </div>
         
         <div class="contenedor2">
-            
             <div>
-                <!-- Creación de tabla de datos -->
                 <table id="tabla1">
                     <thead>
                         <tr>
@@ -101,33 +98,35 @@
                     </thead>
                     <tbody id="tabla2-body"></tbody>
                 </table>
-                <!-- Final de la tabla -->
             </div>
         </div>
 
         <div class="contenedor3">
 
+            <h1>Insertar Usuario</h1>
+
             <form action="" id="formulario">
+
                 <div class="mb-3">
-                <input type="number" class="form-control" id="usu_documento" name="Documento" placeholder="Documento">
+                <input type="text" class="form-control" id="usu_Documento" name="Documento" placeholder="Documento">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="usu_nombre" name ="Nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="usu_Nombre" name ="Nombre" placeholder="Nombre">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="usu_apellido" name ="Apellido" placeholder="Apellido">
+                    <input type="text" class="form-control" id="usu_Apellido" name ="Apellido" placeholder="Apellido">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="usu_tipo" name="Tipo de Usuario" placeholder="Tipo de Usuario">
+                    <input type="text" class="form-control" id="usu_Tipo" name="Tipo de Usuario" placeholder="Tipo de Usuario">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="usu_celular" name="Celular" placeholder="Celular">
+                    <input type="text" class="form-control" id="usu_Celular" name="Celular" placeholder="Celular">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="usu_correo" name="Correo" placeholder="Correo">
+                    <input type="text" class="form-control" id="usu_Correo" name="Correo" placeholder="Correo">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="usu_ficha" name="Ficha" placeholder="Ficha">
+                    <input type="text" class="form-control" id="usu_Ficha" name="Ficha" placeholder="Ficha">
                 </div>
                 <div class="mb-3">
                     <button type="button" id="AgregarUsuario" class=" btn btn-primary w-100 fs-5 mb-3">Insertar Usuario</button>
@@ -136,9 +135,17 @@
 
         </div>
 
-        <div class="contenedor4">B</div>
-        <div class="contenedor5">C</div>
-        
+        <div class="contenedor4">
+            <h1>Buscar Usario</h1>
+            <label for=""><input type="text" id="id_usuarioo" name="id_usuarioo" placeholder="Documento del Usuario"></label>
+            <button type="button" id="BuscarUsuario" class="btn btn-danger w-100 fs-5 mb-3">Buscar</button>
+        </div>
+        <div class="contenedor5">
+            <h1>Eliminar Usuario</h1>
+            <label for=""><input type="text" id="documento_usuario" name="documento_usuario" placeholder="Número de Documento"></label>
+            <button type="button" id="EliminarUsuario" class="btn btn-danger w-100 fs-5 mb-3">Eliminar</button>
+        </div>
+        <div class="contenedor6">D</div>
 
     </section>
     
@@ -147,6 +154,6 @@
 
 
     <script src="js/script.js"></script>
-    <script src="js/ListarUsuarios.js"></script>
+    <script src="js/metodos-usuarios.js"></script>
 </body>
 </html>
