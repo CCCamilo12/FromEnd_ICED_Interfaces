@@ -11,86 +11,69 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body id="body">
-    
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
-
-        </div>
-
     </header>
 
     <div class="menu__side" id="menu_side">
-
         <div class="options__menu">	
-
             <a href="/index3.html">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
                     <h4>Dispositivos</h4>
                 </div>
             </a>
-
             <a href="/index4.html">
                 <div class="option">
                     <i class="fa-solid fa-cloud"></i>
                     <h4>Usuarios</h4>
                 </div>
             </a>
-            
             <a href="/index5.html" class="selected">
                 <div class="option">
                     <i class="fa-solid fa-database"></i>
                     <h4>Prestamos</h4>
                 </div>
             </a>
-
             <a href="/index6.html">
                 <div class="option">
                     <i class="fa-solid fa-code"></i>
                     <h4>Saciones</h4>
                 </div>
             </a>
-
             <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-users"></i>
                     <h4>Contacto</h4>
                 </div>
             </a>
-
             <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-arrows-rotate"></i>
                     <h4>Nosotros</h4>
                 </div>
             </a>
-
             <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-plus"></i>
                     <h4>Nosotros</h4>
                 </div>
             </a>
-
         </div>
-
     </div>
 
     <section class="cont">
-
         <div class="contenedor1">
             <h1>Lista de préstamos</h1>
         </div>
-        
         <div class="contenedor2">
-            
             <div>
                 <!-- Creación de tabla de datos -->
                 <table id="tabla1">
                     <thead> 
-                        <tr>
+                        <tr>   
                             <th>ID</th>
                             <th>Fecha de Entrega</th>
                             <th>Fecha de Devolución</th>
@@ -101,17 +84,49 @@
                             <th>Observaciones Recibidas</th>
                         </tr>
                     </thead>
-                    <tbody id="tabla2-body"></tbody>
+                    <tbody id="tabla1-body"></tbody>
                 </table>
                 <!-- Final de la tabla -->
             </div>
         </div>
-
-        <div class="contenedor3">A</div>
-        <div class="contenedor4">B</div>
+        <div class="contenedor3">
+                <h1>Insertar Préstamo</h1>
+                <form id="formulario">
+                  <div class="mb-3">
+                    <input type="number" class="form-control" id="pres_id" name="pres_id" placeholder="ID del préstamo">
+                  </div>
+                  <div class="mb-3">
+                    <input type="date" class="form-control" id="pres_fec_entrega" name="pres_fec_entrega" placeholder="Fecha de entrega">
+                  </div>
+                  <div class="mb-3">
+                    <input type="date" class="form-control" id="pres_fec_devolucion" name="pres_fec_devolucion" placeholder="Fecha de devolución">
+                  </div>
+                  <div class="mb-3">
+                    <input type="time" class="form-control" id="pres_hora_entrega" name="pres_hora_entrega" placeholder="Hora de entrega">
+                  </div>
+                  <div class="mb-3">
+                    <input type="time" class="form-control" id="pres_hora_devolucion" name="pres_hora_devolucion" placeholder="Hora de devolución">
+                  </div>
+                  <div class="mb-3">
+                    <input type="number" class="form-control" id="pres_tiempo_limite" name="pres_tiempo_limite" placeholder="Tiempo límite">
+                  </div>
+                  <div class="mb-3">
+                    <textarea class="form-control" id="pres_observaciones_entrega" name="pres_observaciones_entrega" placeholder="Observaciones de entrega"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <textarea class="form-control" id="pres_observaciones_recibido" name="pres_observaciones_recibido" placeholder="Observaciones recibidas"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <button type="button" id="InsertarPrestamo" class="btn btn-primary w-100 fs-5 mb-3">Insertar Préstamo</button>
+                  </div>
+                </form>
+                        
+        </div>
+        <div class="contenedor4">
+            <label for="">Digite el préstamo <input type="text" id="pres_idddd" name="pres_id" placeholder="ID del préstamo"></label>
+            <button type="button" id="BuscarPrestamo" class="btn btn-danger w-100 fs-5 mb-3">Buscar</button>
+        </div>
         <div class="contenedor5">C</div>
-        
-
     </section>
 
     <script src="/js/ListarPrestamos.js"></script>
