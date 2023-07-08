@@ -103,3 +103,66 @@ $(document).ready(function(){
 
 500 error en el servidor
 */
+
+
+
+// AGREGAR EQUIPO
+$('#Agregar').on('click', function() {
+    let datos = {
+        equ_id: $('#equ_id').val(),
+        equi_tipo: $('#equi_tipo').val(),
+        equi_modelo: $('#equi_modelo').val(),
+        equi_color: $('#equi_color').val(),
+        equi_serial: $('#equi_serial').val(),
+        equi_estado: $('#equi_estado').val(),
+        equi_especialidad: $('#equi_especialidad').val(),
+    };
+
+    // Validar campos obligatorios antes de enviar la solicitud
+    if (datos.equi_tipo && datos.equi_modelo && datos.equi_color && datos.equi_serial && datos.equi_estado && datos.equi_especialidad) {
+        let datosenvio = JSON.stringify(datos);
+        console.log(datos);
+        console.log(datosenvio);
+        $.ajax({
+            url: "http://localhost:8080/InsertarEquipo/",
+            type: "POST",
+            data: datosenvio,
+            contentType: "application/JSON",
+            dataType: "json",
+            success: function(respuesta) {
+                alert(respuesta);
+                listarequipo();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+            }
+        });
+    } else {
+        alert("Por favor, complete todos los campos obligatorios");
+    }
+});
+
+
+
+ //ELIMAR POR CODIGO
+ $('#EliminarEquipo').on('click', function() {
+    let codigo = $("#codigo_equipo").val();
+    $.ajax({
+        url: "http://localhost:8080/Eliminar/" + codigo,
+        type: "DELETE",
+        success: function(respuesta) {
+            alert(respuesta);
+            listarequipo();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 404) {
+                alert("No se encontró el equipo en la base de datos");
+            } else {
+                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+            }
+        }
+    });
+});
+
+
+

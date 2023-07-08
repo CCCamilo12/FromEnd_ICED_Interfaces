@@ -27,41 +27,51 @@ function listarequipo() {
     });
 }
 
-// AGREGAR EQUIPO
-$('#Agregar').on('click', function() {
+//AGREGAR EQUIPO
+$('#Agregar').on('click',function(){
+
+    let equ_id = $('#equ_id').val();
+    let equi_tipo = $('#equi_tipo').val();
+    let equi_modelo = $('#equi_modelo').val();
+    let equi_color = $('#equi_color').val();
+    let equi_serial = $('#equi_serial').val();
+    let equi_estado = $('#equi_estado').val();
+    let equi_especialidad = $('#equi_especialidad').val();
+
+    if (equ_id === '' || equi_tipo === '' || equi_modelo === '' || equi_color === '' || equi_serial === '' || equi_estado === '' || equi_especialidad === '') {
+        alert('Por favor, completa todos los campos.');
+        return; // Detener la ejecución si hay campos vacíos
+    }
+
     let datos = {
-        equ_id: $('#equ_id').val(),
-        equi_tipo: $('#equi_tipo').val(),
-        equi_modelo: $('#equi_modelo').val(),
-        equi_color: $('#equi_color').val(),
-        equi_serial: $('#equi_serial').val(),
-        equi_estado: $('#equi_estado').val(),
-        equi_especialidad: $('#equi_especialidad').val(),
+        equ_id: equ_id,
+        equi_tipo: equi_tipo,
+        equi_modelo: equi_modelo,
+        equi_color: equi_color,
+        equi_serial: equi_serial,    
+        equi_estado: equi_estado,
+        equi_especialidad: equi_especialidad,
     };
 
-    // Validar campos obligatorios antes de enviar la solicitud
-    if (datos.equi_tipo && datos.equi_modelo && datos.equi_color && datos.equi_serial && datos.equi_estado && datos.equi_especialidad) {
-        let datosenvio = JSON.stringify(datos);
-        console.log(datos);
-        console.log(datosenvio);
-        $.ajax({
-            url: "http://localhost:8080/InsertarEquipo/",
-            type: "POST",
-            data: datosenvio,
-            contentType: "application/JSON",
-            dataType: "json",
-            success: function(respuesta) {
-                alert(respuesta);
-                listarequipo();
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
-            }
-        });
-    } else {
-        alert("Por favor, complete todos los campos obligatorios");
-    }
+    let datosenvio = JSON.stringify(datos);
+    console.log(datos);
+    console.log(datosenvio);
+    
+    $.ajax({
+        url: "http://localhost:8080/InsertarEquipo/",
+        type: "POST",
+        data: datosenvio,
+        contentType: "application/JSON",
+        datatype: JSON,
+        success: function(respuesta){
+            alert("Se agregó el equipo con éxito");
+            listarequipo();   
+        },
+        
+    });
 });
+
+
 
 
 //BUSCAR EQUIPO
