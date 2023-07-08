@@ -27,36 +27,42 @@ function listarequipo() {
     });
 }
 
-//AGREGAR EQUIPO
-$('#Agregar').on('click',function(){
+// AGREGAR EQUIPO
+$('#Agregar').on('click', function() {
+    let datos = {
+        equ_id: $('#equ_id').val(),
+        equi_tipo: $('#equi_tipo').val(),
+        equi_modelo: $('#equi_modelo').val(),
+        equi_color: $('#equi_color').val(),
+        equi_serial: $('#equi_serial').val(),
+        equi_estado: $('#equi_estado').val(),
+        equi_especialidad: $('#equi_especialidad').val(),
+    };
 
-    let datos={
-        equ_id:$('#equ_id').val(),
-        equi_tipo:$('#equi_tipo').val(),
-        equi_modelo:$('#equi_modelo').val(),
-        equi_color:$('#equi_color').val(),
-        equi_serial:$('#equi_serial').val(),    
-        equi_estado:$('#equi_estado').val(),
-        equi_especialidad:$('#equi_especialidad').val(),
-
+    // Validar campos obligatorios antes de enviar la solicitud
+    if (datos.equi_tipo && datos.equi_modelo && datos.equi_color && datos.equi_serial && datos.equi_estado && datos.equi_especialidad) {
+        let datosenvio = JSON.stringify(datos);
+        console.log(datos);
+        console.log(datosenvio);
+        $.ajax({
+            url: "http://localhost:8080/InsertarEquipo/",
+            type: "POST",
+            data: datosenvio,
+            contentType: "application/JSON",
+            dataType: "json",
+            success: function(respuesta) {
+                alert(respuesta);
+                listarequipo();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+            }
+        });
+    } else {
+        alert("Por favor, complete todos los campos obligatorios");
     }
-    let datosenvio=JSON.stringify(datos)
-    console.log(datos)
-    console.log(datosenvio)
-    $.ajax({
-        url: "http://localhost:8080/InsertarEquipo/",
-        type: "POST",
-        data: datosenvio,
-        contentType: "application/JSON",
-        datatype: JSON,
-        success: function(respuesta){
-            alert(respuesta)
-            listarequipo();
-            
-            
-        }
-    })
-})
+});
+
 
 //BUSCAR EQUIPO
 $('#BuscarEquipo').on('click', function(){
@@ -112,7 +118,7 @@ $('#BuscarEquipo').on('click', function(){
     });
 });
 
-//actualizar equipo
+// ACTUALIZAR EQUIPO
 $('#ActualizarEquipo').on('click', function() {
     let equipo = {
         equ_id: $('#equi_id_actualizar').val(),
@@ -123,25 +129,34 @@ $('#ActualizarEquipo').on('click', function() {
         equi_estado: $('#equi_estado_actualizar').val(),
         equi_especialidad: $('#equi_especialidad_actualizar').val()
     };
-    let datosEnvio = JSON.stringify(equipo);
-    $.ajax({
-        url: "http://localhost:8080/ActualizarEquipo",
-        type: "POST",
-        data: datosEnvio,
-        contentType: "application/json",
-        dataType: "json",
-        success: function(respuesta) {
-            alert("Actualización de datos exitosa");
-            listarequipo();
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            if (jqXHR.status === 404) {
-                alert("No se encontró el equipo en la base de datos");
-            } else {
-                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+
+    // Validar campos obligatorios antes de enviar la solicitud
+    if (equipo.equ_id && equipo.equi_tipo && equipo.equi_modelo && equipo.equi_color && equipo.equi_serial && equipo.equi_estado && equipo.equi_especialidad) {
+        let datosEnvio = JSON.stringify(equipo);
+        $.ajax({
+            url: "http://localhost:8080/ActualizarEquipo",
+            type: "POST",
+            data: datosEnvio,
+            contentType: "application/json",
+            dataType: "json",
+            success: function(respuesta) {
+                if (respuesta === "Actualización de datos exitosa") {
+                    alert(respuesta);
+                    listarequipo();
+                } else {
+                    alert("Ha ocurrido un error en la actualización de datos");
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR); // Imprimir el objeto jqXHR en la consola del navegador
+                if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
+                    alert("Ha ocurrido un error en la solicitud: " + jqXHR.responseJSON.message);
+                } else {
+                    alert("Ha ocurrido un error en la solicitud. Consulta la consola para más detalles.");
+                }
             }
-        }
-    });
+        });
+    } else {
+        alert("Por favor, complete todos los campos obligatorios");
+    }
 });
-
-
