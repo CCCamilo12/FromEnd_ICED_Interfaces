@@ -27,6 +27,8 @@ function listarequipo() {
     });
 }
 listarequipo();  
+
+
 //AGREGAR EQUIPO
 $('#Agregar').on('click',function(){
 
@@ -71,9 +73,6 @@ $('#Agregar').on('click',function(){
     });
 });
 
-
-
-
 //BUSCAR EQUIPO
 $('#BuscarEquipo').on('click', function(){
     let tablaEquipos = document.querySelector('#tabla1-body');
@@ -95,7 +94,7 @@ $('#BuscarEquipo').on('click', function(){
                 '<td>' + respuesta.equi_especialidad + '</td>' +
                 '</tr>'; 
             } else {
-            alert("No se encontró el equipo en la base de datos");
+               alert("No se encontró el equipo en la base de datos");
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -129,44 +128,41 @@ $('#BuscarEquipo').on('click', function(){
 });
 
 // ACTUALIZAR EQUIPO
-$('#ActualizarEquipo').on('click', function() {
-    let equipo = {
-        equ_id: $('#equi_id_actualizar').val(),
-        equi_tipo: $('#equi_tipo_actualizar').val(),
-        equi_modelo: $('#equi_modelo_actualizar').val(),
-        equi_color: $('#equi_color_actualizar').val(),
-        equi_serial: $('#equi_serial_actualizar').val(),
-        equi_estado: $('#equi_estado_actualizar').val(),
-        equi_especialidad: $('#equi_especialidad_actualizar').val()
+$('#ActualizarEquipo').on('click',function(){
+
+    let equ_id = $('#equi_id_actualizar').val();
+    let equi_tipo = $('#equi_tipo_actualizar').val();
+    let equi_modelo = $('#equi_modelo_actualizar').val();
+    let equi_color = $('#equi_color_actualizar').val();
+    let equi_serial = $('#equi_serial_actualizar').val();
+    let equi_estado = $('#equi_estado_actualizar').val();
+    let equi_especialidad = $('#equi_especialidad_actualizar').val();
+
+    let datos = {
+        equ_id: equ_id,
+        equi_tipo: equi_tipo,
+        equi_modelo: equi_modelo,
+        equi_color: equi_color,
+        equi_serial: equi_serial,    
+        equi_estado: equi_estado,
+        equi_especialidad: equi_especialidad,
     };
 
-    // Validar campos obligatorios antes de enviar la solicitud
-    if (equipo.equ_id && equipo.equi_tipo && equipo.equi_modelo && equipo.equi_color && equipo.equi_serial && equipo.equi_estado && equipo.equi_especialidad) {
-        let datosEnvio = JSON.stringify(equipo);
-        $.ajax({
-            url: "http://localhost:8080/ActualizarEquipo",
-            type: "POST",
-            data: datosEnvio,
-            contentType: "application/json",
-            dataType: "json",
-            success: function(respuesta) {
-                if (respuesta === "Actualización de datos exitosa") {
-                    alert(respuesta);
-                    listarequipo();
-                } else {
-                    alert("Ha ocurrido un error en la actualización de datos");
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR); // Imprimir el objeto jqXHR en la consola del navegador
-                if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
-                    alert("Ha ocurrido un error en la solicitud: " + jqXHR.responseJSON.message);
-                } else {
-                    alert("Ha ocurrido un error en la solicitud. Consulta la consola para más detalles.");
-                }
-            }
-        });
-    } else {
-        alert("Por favor, complete todos los campos obligatorios");
-    }
+    let datosenvio = JSON.stringify(datos);
+    console.log(datos);
+    console.log(datosenvio);
+    
+    $.ajax({
+        url: "http://localhost:8080/ActualizarEquipo/",
+        type: "POST",
+        data: datosenvio,
+        contentType: "application/JSON",
+        datatype: JSON,
+        success: function(respuesta){
+            alert(respuesta);
+            listarequipo();   
+        },
+        
+    });
 });
+

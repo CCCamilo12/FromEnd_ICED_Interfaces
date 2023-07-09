@@ -245,7 +245,7 @@ table th {
 .contenedor3 {
     background-color: rgb(255, 255, 255);
     grid-column: 8/12;
-    grid-row: 6/23;
+    grid-row: 6/25;
     border-radius: 3%;
     padding: 20px;
     display: flex;
@@ -349,7 +349,7 @@ table th {
 .contenedor4 {
     background-color: #ffffff;
     grid-column: 8/12;
-    grid-row: 23/32;
+    grid-row: 25/45;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
@@ -393,7 +393,7 @@ table th {
 
 .contenedor5{
     background-color: #ffffff;
-    grid-column: 1/7;
+    grid-column: 1/4;
     grid-row: 32/45;
     border-radius: 3%;
     display: flex;
@@ -439,7 +439,7 @@ table th {
 
 .contenedor6{
     background-color: #ffffff;
-    grid-column: 7/12;
+    grid-column: 4/8;
     grid-row: 32/45;
     border-radius: 3%;
     display: flex;
@@ -449,6 +449,103 @@ table th {
 
 }
 
+.contenedor6 h1 {
+    margin-bottom: 100px;
+}
+
+
+
+#equi_id_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}    
+
+
+#equi_tipo_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+
+#equi_modelo_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#equi_color_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+
+}
+
+#equi_serial_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#equi_estado_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#equi_especialidad_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#ActualizarEquipo{
+    border: none;
+    background-color: #b491ce;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 300px;
+    height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px;
+    transition: background-color 0.3s ease; 
+}
+
+
+#ActualizarEquipo:hover {
+    background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
+}
 
 
 
