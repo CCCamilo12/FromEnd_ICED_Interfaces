@@ -1,29 +1,32 @@
 //Listar datos de Usuarios
-$(document).ready(function() {
-    $('body').load('load', function(){
-        let tablaBody = document.querySelector('#tabla2-body');
-        tablaBody.innerHTML = '';
-        $.ajax({
-            url: "http://localhost:8080/ListarUsuarios",
-            type: "GET",
-            dataType: "JSON",
-            success: function(respuesta) {
-                console.log(respuesta);
-                for (let i = 0; i < respuesta.length; i++) {
-                    tablaBody.innerHTML += '<tr>' +
-                        '<td>' + respuesta[i].usu_Documento + '</td>' +
-                        '<td>' + respuesta[i].usu_Nombre + '</td>' +
-                        '<td>' + respuesta[i].usu_Apellido + '</td>' +
-                        '<td>' + respuesta[i].usu_Tipo + '</td>' +
-                        '<td>' + respuesta[i].usu_Celular + '</td>' +
-                        '<td>' + respuesta[i].usu_Correo + '</td>' +
-                        '<td>' + respuesta[i].usu_Ficha + '</td>' +
-                        '</tr>';
+function ListarUsuario() {
+    $(document).ready(function() {
+        $('body').load('load', function(){
+            let tablaBody = document.querySelector('#tabla2-body');
+            tablaBody.innerHTML = '';
+            $.ajax({
+                url: "http://localhost:8080/ListarUsuarios",
+                type: "GET",
+                dataType: "JSON",
+                success: function(respuesta) {
+                    console.log(respuesta);
+                    for (let i = 0; i < respuesta.length; i++) {
+                        tablaBody.innerHTML += '<tr>' +
+                            '<td>' + respuesta[i].usu_Documento + '</td>' +
+                            '<td>' + respuesta[i].usu_Nombre + '</td>' +
+                            '<td>' + respuesta[i].usu_Apellido + '</td>' +
+                            '<td>' + respuesta[i].usu_Tipo + '</td>' +
+                            '<td>' + respuesta[i].usu_Celular + '</td>' +
+                            '<td>' + respuesta[i].usu_Correo + '</td>' +
+                            '<td>' + respuesta[i].usu_Ficha + '</td>' +
+                            '</tr>';
+                    }
                 }
-            }
+            });
         });
     });
-});
+}
+ListarUsuario();
 
 //Agregar Usuario
 $('#AgregarUsuario').on('click',function(){
@@ -47,6 +50,7 @@ $('#AgregarUsuario').on('click',function(){
         datatype: JSON,
         success: function(respuesta){
             alert(respuesta)
+            ListarUsuario();
         }
     })
 })
@@ -94,6 +98,7 @@ $('#EliminarUsuario').on('click',function(){
         type: "DELETE",
         success: function(respuesta){
             alert(respuesta);
+            ListarUsuario();
         },
         error: function(jqXHR, textStatus, errorThrown) {
             if (jqXHR.status === 404) {

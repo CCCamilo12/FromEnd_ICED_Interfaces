@@ -26,7 +26,7 @@ function listarequipo() {
         });
     });
 }
-
+listarequipo();  
 //AGREGAR EQUIPO
 $('#Agregar').on('click',function(){
 
@@ -95,7 +95,7 @@ $('#BuscarEquipo').on('click', function(){
                 '<td>' + respuesta.equi_especialidad + '</td>' +
                 '</tr>'; 
             } else {
-               alert("No se encontró el equipo en la base de datos");
+            alert("No se encontró el equipo en la base de datos");
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
