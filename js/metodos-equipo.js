@@ -110,6 +110,12 @@ $('#BuscarEquipo').on('click', function(){
  //ELIMAR POR CODIGO
  $('#EliminarEquipo').on('click', function() {
     let codigo = $("#codigo_equipo").val();
+
+    if (codigo === '') {
+        alert('Por favor, completa el campo');
+        return; // Detener la ejecución si hay campos vacíos
+    }
+
     $.ajax({
         url: "http://localhost:8080/Eliminar/" + codigo,
         type: "DELETE",

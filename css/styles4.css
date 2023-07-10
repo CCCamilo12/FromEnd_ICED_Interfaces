@@ -178,7 +178,7 @@ main{
 /*contenedores para el cotenido y el grid*/
 .cont{
     
-  
+
     max-width: 100%;
     height: 1500px;
     display: grid;
@@ -204,8 +204,6 @@ main{
     text-align: center;
     font-size: 18px;
     border-radius: 10px;
-
-
 }
 
 .contenedor1 h1{
@@ -223,11 +221,9 @@ main{
     border-radius: 1%;
     overflow-y: auto;
     overflow-x: hidden;
-    
 }
 
 /*diseño de la tabla*/
-
 table {
     width: 90%;
     border-collapse: collapse;
@@ -245,10 +241,11 @@ table th {
     background-color: #f2f2f2;
 }
 
-.contenedor3{
+
+.contenedor3 {
     background-color: rgb(255, 255, 255);
     grid-column: 8/12;
-    grid-row: 6/23;
+    grid-row: 6/25;
     border-radius: 3%;
     padding: 20px;
     display: flex;
@@ -258,7 +255,7 @@ table th {
 }
 
 .contenedor3 h1{
-    margin-bottom: 50px;
+    margin-bottom: 11%;
 }
 
 #usu_Documento{
@@ -270,6 +267,7 @@ table th {
     margin-bottom: 25px;
     margin-top: -10px;
 }
+
 #usu_Nombre{
     border: 1px solid #ccc;
     border-radius: 25px;
@@ -278,7 +276,10 @@ table th {
     height: 20px;
     margin-bottom: 25px;
     margin-top: -10px;
+  
+
 }
+
 #usu_Apellido{
     border: 1px solid #ccc;
     border-radius: 25px;
@@ -286,8 +287,11 @@ table th {
     width: 350px;
     height: 20px;
     margin-bottom: 25px;
-    margin-top: -10px;
+    margin-top: -10px; 
+    
+
 }
+
 #usu_Tipo{
     border: 1px solid #ccc;
     border-radius: 25px;
@@ -296,7 +300,9 @@ table th {
     height: 20px;
     margin-bottom: 25px;
     margin-top: -10px;
+    
 }
+
 #usu_Celular{
     border: 1px solid #ccc;
     border-radius: 25px;
@@ -305,7 +311,9 @@ table th {
     height: 20px;
     margin-bottom: 25px;
     margin-top: -10px;
+
 }
+
 #usu_Correo{
     border: 1px solid #ccc;
     border-radius: 25px;
@@ -314,7 +322,10 @@ table th {
     height: 20px;
     margin-bottom: 25px;
     margin-top: -10px;
+   
+
 }
+
 #usu_Ficha{
     border: 1px solid #ccc;
     border-radius: 25px;
@@ -323,8 +334,12 @@ table th {
     height: 20px;
     margin-bottom: 25px;
     margin-top: -10px;
+   
+
 }
-#AgregarUsuario{
+
+
+#AgregarUsuario {
     border: none;
     background-color: #b491ce;
     border-radius: 25px;
@@ -338,28 +353,42 @@ table th {
     transition: background-color 0.3s ease; 
 }
 
+
 #AgregarUsuario:hover {
     background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
 }
 
-.contenedor4{
-    background-color: #ffffff;
+.contenedor4 {
+    background-color: rgb(255, 255, 255);
     grid-column: 8/12;
-    grid-row: 23/32;
+    grid-row: 25/45;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     border-radius: 3%;
+    
 }
+
+
 .contenedor4 h1 {
-    margin-bottom: 55px;
+    margin-bottom: 50px;
 }
 
 
+#usu_Documento_id_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}    
 
-#id_usuarioo{
+
+#usu_Nombre_id_actualizar{
     border: 1px solid #ccc;
     border-radius: 25px;
     padding: 20px;
@@ -369,7 +398,59 @@ table th {
     margin-top: -10px; 
 }
 
-#BuscarUsuario {
+
+#usu_Apellido_id_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#usu_Tipo_id_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+
+}
+
+#usu_Celular_id_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#usu_Correo_id_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#usu_Ficha_id_actualizar{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#ActualizarUsuario{
     border: none;
     background-color: #b491ce;
     border-radius: 25px;
@@ -383,13 +464,16 @@ table th {
     transition: background-color 0.3s ease; 
 }
 
-#BuscarUsuario:hover {
+
+#ActualizarUsuario:hover {
     background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
 }
 
+
+
 .contenedor5{
     background-color: #ffffff;
-    grid-column: 1/7;
+    grid-column: 1/4;
     grid-row: 32/45;
     border-radius: 3%;
     display: flex;
@@ -398,7 +482,6 @@ table th {
     padding: 20px;
 
 }
-
 
 .contenedor5 h1 {
     margin-bottom: 100px;
@@ -436,7 +519,7 @@ table th {
 
 .contenedor6{
     background-color: #ffffff;
-    grid-column: 7/12;
+    grid-column: 4/8;
     grid-row: 32/45;
     border-radius: 3%;
     display: flex;
@@ -446,7 +529,37 @@ table th {
 
 }
 
+.contenedor6 h1 {
+    margin-bottom: 100px;
+}
 
+#id_usuarioo{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+#BuscarUsuario {
+    border: none;
+    background-color: #b491ce;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 300px;
+    height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px;
+    transition: background-color 0.3s ease; 
+}
+
+#BuscarUsuario:hover {
+    background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
+}
 
 
 
@@ -463,6 +576,8 @@ table th {
 }
 
 
+/* responsive */
+
 @media screen and (max-width: 760px){
     .body_move{
         margin-left: 0px;
@@ -475,7 +590,7 @@ table th {
 }
 
 
-@media screen and (min-width: 320px) and (max-width: 700px) {
+@media screen and (min-width: 320px) and (max-width: 1000px) {
     .cont {
         max-width: 100%;
         height: 1000px;
@@ -483,7 +598,7 @@ table th {
         margin: 3px;
         margin-top: 3px;
         grid-template-columns: repeat(11, 1fr);
-        grid-template-rows: repeat(60, 1fr);
+        grid-template-rows: repeat(130, 1fr);
         /*margenes generales*/
         row-gap: 20px;
         column-gap: 20px;
@@ -510,7 +625,7 @@ table th {
 
     .contenedor2 {
         grid-column: 1/12;
-        grid-row: 2/20;
+        grid-row: 2/25;
         overflow-x: auto; /* Added overflow-x property for horizontal scrolling */
         padding-bottom: 10px;
         border-radius: 5%;
@@ -529,11 +644,255 @@ table th {
 
     .contenedor3 {
         grid-column: 1/12;
-        grid-row: 20/35;
+        grid-row: 25/50;
+        
+    }
+
+    .contenedor3 h1{
+        margin-bottom: 8%;
+    }
+
+    #equi_tipo{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+    }
+
+    #equi_modelo{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+    }
+
+    #equi_color{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+    }
+
+    #equi_serial{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+    }
+
+    #equi_estado{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+
+    #equi_especialidad{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+    }
+
+
+    #Agregar {
+        border: none;
+        background-color: #b491ce;
+        border-radius: 25px;
+        padding: 10px 20px;
+        width: 250px;
+        height: 50px;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: -0px;
+        transition: background-color 0.3s ease; 
     }
 
     .contenedor4 {
         grid-column: 1/12;
-        grid-row: 35/50;
+        grid-row: 50/80;
+        
     }
+
+    .contenedor4 h1{
+        margin-bottom: 8%;
+    }
+
+    #equi_id_actualizar{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+    #equi_tipo_actualizar{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+    #equi_modelo_actualizar{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+    #equi_color_actualizar{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+    #equi_serial_actualizar{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+    #equi_estado_actualizar{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+    #equi_especialidad_actualizar{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+
+    #ActualizarEquipo {
+        border: none;
+        background-color: #b491ce;
+        border-radius: 25px;
+        padding: 10px 20px;
+        width: 250px;
+        height: 50px;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: -0px;
+        transition: background-color 0.3s ease; 
+    }
+
+    .contenedor5 {
+        grid-column: 1/12;
+        grid-row: 80/100; 
+    }
+
+    #codigo_equipo{
+
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+
+    #EliminarEquipo{
+        border: none;
+        background-color: #b491ce;
+        border-radius: 25px;
+        padding: 10px 20px;
+        width: 250px;
+        height: 50px;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: -0px;
+        transition: background-color 0.3s ease; 
+
+    }
+
+    
+    .contenedor6 {
+        grid-column: 1/12;
+        grid-row: 100/120;
+        
+    }
+
+    #id_equipoo{
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        width: 250px;
+        height: 10px;
+        margin-bottom: 15px;
+        margin-top: -1px;
+
+    }
+
+    #BuscarEquipo{
+        border: none;
+        background-color: #b491ce;
+        border-radius: 25px;
+        padding: 10px 20px;
+        width: 250px;
+        height: 50px;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: -0px;
+        transition: background-color 0.3s ease; 
+    }
+
+
+
+
+
+    
+
+   
+    
 }

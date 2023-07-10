@@ -89,7 +89,6 @@ $('#BuscarUsuario').on('click',function(){
     });
 });
 
-
 // Eliminar Usuario
 $('#EliminarUsuario').on('click',function(){
     let documento = $('#documento_usuario').val();
@@ -109,4 +108,31 @@ $('#EliminarUsuario').on('click',function(){
         }
     });
 });
+
+//ACTUALIZAR USUARIO
+$('#ActualizarUsuario').on('click',function(){
+    let datosUsario={
+        usu_Documento:$('#usu_Documento_id_actualizar').val(),
+        usu_Nombre:$('#usu_Nombre_id_actualizar').val(),
+        usu_Apellido:$('#usu_Apellido_id_actualizar').val(),
+        usu_Tipo:$('#usu_Tipo_id_actualizar').val(),
+        usu_Celular:$('#usu_Celular_id_actualizar').val(),    
+        usu_Correo:$('#usu_Correo_id_actualizar').val(),
+        usu_Ficha:$('#usu_Ficha_id_actualizar').val(),
+    }
+    let datosenvio=JSON.stringify(datosUsario)
+    console.log(datosUsario)
+    console.log(datosenvio)
+    $.ajax({
+        url: "http://localhost:8080/ActualizarUsuario",
+        type: "POST",
+        data: datosenvio,
+        contentType: "application/JSON",
+        datatype: JSON,
+        success: function(respuesta){
+            alert(respuesta)
+            ListarUsuario();
+        }
+    })
+})
 
