@@ -29,7 +29,7 @@ $(document).ready(function() {
         console.log("Error al obtener la lista de préstamos");
     }
     });
-
+});
 /////////////////////////////////////////////BUSCAR/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 $('#BuscarPrestamo').on('click', function() {
@@ -67,10 +67,98 @@ $('#BuscarPrestamo').on('click', function() {
         }
     });
 });
-
-
 /////////////////////////////////////////////ELIMINAR/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      
+
+
+
+// esto es todo lo de insertar
+
+
+
+$(document).ready(function() {
+    $('#Agregar').on('click', function(event) {
+        event.preventDefault();
+
+        // trae informacion de los datos que se insertan desde el formulario html
+        let equipoId = $('#equipoId').val();
+        let usuarioId = $('#usuarioId').val();
+        let fechaEntrega = $('#fechaEntrega').val();
+        let fechaDevolucion = $('#fechaDevolucion').val();
+        let horaEntrega = $('#horaEntrega').val();
+        let horaDevolucion = $('#horaDevolucion').val();
+        let tiempoLimite = $('#tiempoLimite').val();
+        let observacionesEntrega = $('#observacionesEntrega').val();
+        let observacionesRecibido = $('#observacionesRecibido').val();
+        console.log(horaEntrega)
+        //  envia con los datos con el ajax
+        let datosPrestamo = {
+            equipoId: equipoId,
+            usuarioId: usuarioId,
+            fechaEntrega: fechaEntrega,
+            fechaDevolucion: fechaDevolucion,
+            horaEntrega: horaEntrega,
+            horaDevolucion: horaDevolucion,
+            tiempoLimite: tiempoLimite,
+            observacionesEntrega: observacionesEntrega,
+            observacionesRecibido: observacionesRecibido
+            
+        };
+
+        $.ajax({
+            url: "http://localhost:8080/InsertarPrestamo/",
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify(datosPrestamo),
+            contentType: "application/json",
+            success: function(respuesta) {
+                console.log(respuesta);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    });
 });
-  
+
+//no borrar estas funciones  cargarEquipos(); , cargarUsuarios(); son para que aparezca la informacion  de los select en el formulario html
+
+function cargarEquipos() {
+    $.ajax({
+        url: "http://localhost:8080/listarEquipos",
+        type: "GET",
+        dataType: "JSON",
+        success: function(respuesta) {
+            let selectEquipos = $("#equipoId");
+            selectEquipos.empty();
+            
+            for (let i = 0; i < respuesta.length; i++) {
+                let option = $("<option></option>").attr("value", respuesta[i].equ_id).text(respuesta[i].equi_tipo);
+                selectEquipos.append(option);
+            }
+        }
+    });
+}
+
+function cargarUsuarios() {
+    $.ajax({
+        url: "http://localhost:8080/ListarUsuarios",
+        type: "GET",
+        dataType: "JSON",
+        success: function(respuesta) {
+            let selectUsuarios = $("#usuarioId");
+            selectUsuarios.empty();
+            for (let i = 0; i < respuesta.length; i++) {
+                let option = $("<option></option>").attr("value", respuesta[i].usu_Documento).text(respuesta[i].usu_Nombre + " " + respuesta[i].usu_Apellido);
+                selectUsuarios.append(option);
+            }
+        }
+    });
+}
+
+// carga los datos de los selec que hay en el formulario
+$(document).ready(function() {
+    cargarEquipos();
+    cargarUsuarios();
+});
+

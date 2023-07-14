@@ -94,7 +94,53 @@
             </div>
         </div>
         <div class="contenedor3">
-                
+    <h1>InsertarPrestamos</h1>  
+
+    <form action="/insertarPrestamo/" id="formularioPrestamo">
+        <div class="mb-3">
+            <select class="form-control" id="equipoId" name="equipoId">
+                <!-- Aquí debes cargar los equipos disponibles en el select -->
+                <option value="1">Equipo 1</option>
+                <option value="2">Equipo 2</option>
+                <!-- ... -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-control" id="usuarioId" name="usuarioId">
+                <!-- Aquí debes cargar los usuarios disponibles en el select -->
+                <option value="1">Usuario 1</option>
+                <option value="2">Usuario 2</option>
+                <!-- ... -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <input type="date" class="form-control" id="fechaEntrega" name="fechaEntrega" placeholder="Fecha de entrega">
+        </div>
+        <div class="mb-3">
+            <input type="date" class="form-control" id="fechaDevolucion" name="fechaDevolucion" placeholder="Fecha de devolución">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="horaEntrega" name="horaEntrega" placeholder="Hora de entrega (HH:mm:ss)">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="horaDevolucion" name="horaDevolucion" placeholder="Hora de devolución (HH:mm:ss)">
+        </div>
+        <div class="mb-3">
+            <input type="number" class="form-control" id="tiempoLimite" name="tiempoLimite" placeholder="Tiempo límite">
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" id="observacionesEntrega" name="observacionesEntrega" placeholder="Observaciones de entrega"></textarea>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" id="observacionesRecibido" name="observacionesRecibido" placeholder="Observaciones de recibido"></textarea>
+        </div>
+        <div class="mb-3">
+            <button type="button" id="Agregar" class="btn btn-primary w-100 fs-5 mb-3">Insertar Préstamo</button>
+        </div>
+    </form>
+    
+            
+            
         </div>
         <div class="contenedor4">
             <label for="">
