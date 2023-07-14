@@ -1,11 +1,9 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     font-family: sans-serif;
-
 }
 
 body{
@@ -195,7 +193,7 @@ main{
     box-sizing: border-box;
     
 }
-
+/*Contenedor1*/
 .contenedor1{
     margin-top: 2%;
     background-color: rgb(255, 255, 255);
@@ -204,8 +202,6 @@ main{
     text-align: center;
     font-size: 18px;
     border-radius: 10px;
-
-
 }
 
 .contenedor1 h1{
@@ -219,6 +215,7 @@ main{
     display: flex;
     justify-content: center;
 }
+/*Contenedor 2*/
 
 .contenedor2{
     background-color: rgb(255, 255, 255);
@@ -231,7 +228,111 @@ main{
 }
 
 
+/*contenedor3*/
 
+.contenedor3{
+    background-color: rgb(255, 255, 255);
+    grid-column: 8/12;
+    grid-row: 3/9;
+    border-radius: 5%;
+    
+}
+
+
+/*contenedor4*/
+.contenedor4 h1 {
+    margin-bottom: 55px;
+}
+.contenedor4 {
+    background-color: #ffffff;
+    grid-column: 8/12;
+    grid-row: 23/32;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 3%;
+    
+}
+
+.contenedor4{
+    background-color: rgb(255, 255, 255);
+    grid-column: 8/12;
+    grid-row: 9/14;
+    border-radius: 5%;
+}
+
+#BuscarPrestamo {
+    border: none;
+    background-color: #b491ce;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 300px;
+    height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px;
+    transition: background-color 0.3s ease; 
+}
+
+#pres_idddd {
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+/*contenedor5*/
+.contenedor5 {
+    background-color: rgb(255, 255, 255);
+    grid-column: 1/8;
+    grid-row: 14/19;
+    border-radius: 5%;
+  
+}
+
+.contenedor5 h1 {
+    text-align: center;
+    margin-bottom: 55px;
+    font-size: 28px;
+}
+
+#EliminarPrestamo:hover {
+    background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
+}
+
+
+#pres_idEliminar {
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: -10px; 
+}
+
+
+#EliminarPrestamo {
+    border: none;
+    background-color: #b491ce;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 300px;
+    height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -10px;
+    transition: background-color 0.3s ease; 
+}
+#EliminarPrestamo:hover {
+    background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
+}
 
 
 
@@ -255,26 +356,6 @@ table th {
     background-color: #f2f2f2;
 }
 
-
-.contenedor3{
-    background-color: rgb(255, 255, 255);
-    grid-column: 8/12;
-    grid-row: 3/9;
-    border-radius: 5%;
-    
-}
-.contenedor4{
-    background-color: rgb(255, 255, 255);
-    grid-column: 8/12;
-    grid-row: 9/14;
-    border-radius: 5%;
-}
-
-
-
-
-
-
 .contenedorfantasma{
     background-image: url(/imagenes/computadora.jpg);
     background-color: rgba(34, 24, 43, 0.354);
@@ -286,7 +367,7 @@ table th {
   
 }
 
-/*contenido del contenedor4 */
+
 
 
 

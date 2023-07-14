@@ -74,7 +74,7 @@
                 <table id="tabla1">
                     <thead> 
                         <tr>   
-                            <th>ID</th>
+                            <th>ID prestamo</th>
                             <th>Fecha de Entrega</th>
                             <th>Fecha de Devolución</th>
                             <th>Hora de Entrega</th>
@@ -82,6 +82,8 @@
                             <th>Tiempo Límite</th>
                             <th>Observaciones de Entrega</th>
                             <th>Observaciones Recibidas</th>
+                            <th>Equipo ID</th>
+                            <th>Documento Usuarios</th>
                         </tr>
                     </thead>
                     <tbody id="tabla1-body"></tbody>
@@ -90,45 +92,22 @@
             </div>
         </div>
         <div class="contenedor3">
-                <h1>Insertar Préstamo</h1>
-                <form id="formulario">
-                  <div class="mb-3">
-                    <input type="number" class="form-control" id="pres_id" name="pres_id" placeholder="ID del préstamo">
-                  </div>
-                  <div class="mb-3">
-                    <input type="date" class="form-control" id="pres_fec_entrega" name="pres_fec_entrega" placeholder="Fecha de entrega">
-                  </div>
-                  <div class="mb-3">
-                    <input type="date" class="form-control" id="pres_fec_devolucion" name="pres_fec_devolucion" placeholder="Fecha de devolución">
-                  </div>
-                  <div class="mb-3">
-                    <input type="time" class="form-control" id="pres_hora_entrega" name="pres_hora_entrega" placeholder="Hora de entrega">
-                  </div>
-                  <div class="mb-3">
-                    <input type="time" class="form-control" id="pres_hora_devolucion" name="pres_hora_devolucion" placeholder="Hora de devolución">
-                  </div>
-                  <div class="mb-3">
-                    <input type="number" class="form-control" id="pres_tiempo_limite" name="pres_tiempo_limite" placeholder="Tiempo límite">
-                  </div>
-                  <div class="mb-3">
-                    <textarea class="form-control" id="pres_observaciones_entrega" name="pres_observaciones_entrega" placeholder="Observaciones de entrega"></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <textarea class="form-control" id="pres_observaciones_recibido" name="pres_observaciones_recibido" placeholder="Observaciones recibidas"></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <button type="button" id="InsertarPrestamo" class="btn btn-primary w-100 fs-5 mb-3">Insertar Préstamo</button>
-                  </div>
-                </form>
-                        
+                
         </div>
         <div class="contenedor4">
-            <label for="">Digite el préstamo <input type="text" id="pres_idddd" name="pres_id" placeholder="ID del préstamo"></label>
+            <label for="">
+                <h1>Digite el préstamo</h1>
+                <input type="text" id="pres_idddd" name="pres_id" placeholder="ID del préstamo">
+            </label>
             <button type="button" id="BuscarPrestamo" class="btn btn-danger w-100 fs-5 mb-3">Buscar</button>
         </div>
-        <div class="contenedor5">C</div>
+
+        <div class="contenedor5">
+            <h1>Eliminar el prestamo</h1><input type="text" id="pres_idEliminar" name="pres_id" placeholder="ID del préstamo"></label>
+            <button type="button" id="EliminarPrestamo" class="btn btn-danger w-100 fs-5 mb-3">Eliminar Prestamo</button>
+        </div>
     </section>
 
-    <script src="/js/ListarPrestamos.js"></script>
+    <script src="/js/metods-prestamos.js"></script>
 </body>
 </html>
