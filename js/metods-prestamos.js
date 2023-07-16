@@ -1,35 +1,95 @@
-//LISTA
 $(document).ready(function() {
-    // Listar todos los préstamos
-    $.ajax({
-    url: "http://localhost:8080/ListarPrestamos",
-    type: "GET",
-    dataType: "json",
-    success: function(respuesta) {
-        console.log(respuesta);
-        let tablaBody = $("#tabla1-body");
-        tablaBody.empty(); // Limpiar el contenido anterior de la tabla
+    // Agregar un préstamo
+    $("#agregarPrestamoForm").submit(function(event) {
+        event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
+        
+        // Obtener los valores del formulario
+        let fechaEntrega = $("#fechaEntrega").val();
+        let fechaDevolucion = $("#fechaDevolucion").val();
+        let horaEntrega = $("#horaEntrega").val();
+        let horaDevolucion = $("#horaDevolucion").val();
+        let tiempoLimite = $("#tiempoLimite").val();
+        let observacionesEntrega = $("#observacionesEntrega").val();
+        let observacionesRecibido = $("#observacionesRecibido").val();
+        let equipoId = $("#equipoId").val();
+        let usuarioDocumento = $("#usuarioDocumento").val();
 
-        respuesta.forEach(function(prestamo) {
-        tablaBody.append(`<tr>
-            <td>${prestamo.presId}</td>
-            <td>${prestamo.fechaEntrega}</td>
-            <td>${prestamo.fechaDevolucion}</td>
-            <td>${prestamo.horaEntrega}</td>
-            <td>${prestamo.horaDevolucion}</td>
-            <td>${prestamo.tiempoLimite}</td>
-            <td>${prestamo.observacionesEntrega}</td>
-            <td>${prestamo.observacionesRecibido}</td>
-            <td>${prestamo.equipo.equ_id }</td>
-            <td>${prestamo.usuario.usu_Documento}</td>
-        </tr>`);
+        // Crear el objeto de datos del préstamo
+        let nuevoPrestamo = {
+            fechaEntrega: fechaEntrega,
+            fechaDevolucion: fechaDevolucion,
+            horaEntrega: horaEntrega,
+            horaDevolucion: horaDevolucion,
+            tiempoLimite: tiempoLimite,
+            observacionesEntrega: observacionesEntrega,
+            observacionesRecibido: observacionesRecibido,
+            equipo: {
+                equ_id: equipoId
+            },
+            usuario: {
+                usu_Documento: usuarioDocumento
+            }
+        };
+
+        // Enviar la solicitud AJAX para agregar el préstamo
+        $.ajax({
+            url: "http://localhost:8080/AgregarPrestamo",
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(nuevoPrestamo),
+            success: function(respuesta) {
+                console.log(respuesta);
+                // Actualizar la lista de préstamos después de agregar uno nuevo
+                obtenerListaPrestamos();
+                // Restablecer los valores del formulario
+                $("#agregarPrestamoForm")[0].reset();
+            },
+            error: function() {
+                console.log("Error al agregar el préstamo");
+            }
         });
-    },
-    error: function() {
-        console.log("Error al obtener la lista de préstamos");
-    }
     });
+
+    // Función para obtener la lista de préstamos
+    function obtenerListaPrestamos() {
+        $.ajax({
+            url: "http://localhost:8080/InsertarPrestamo/",
+            type: "GET",
+            dataType: "json",
+            success: function(respuesta) {
+                console.log(respuesta);
+                let tablaBody = $("#tabla1-body");
+                tablaBody.empty(); // Limpiar el contenido anterior de la tabla
+
+                respuesta.forEach(function(prestamo) {
+                    tablaBody.append(`<tr>
+                        <td>${prestamo.presId}</td>
+                        <td>${prestamo.fechaEntrega}</td>
+                        <td>${prestamo.fechaDevolucion}</td>
+                        <td>${prestamo.horaEntrega}</td>
+                        <td>${prestamo.horaDevolucion}</td>
+                        <td>${prestamo.tiempoLimite}</td>
+                        <td>${prestamo.observacionesEntrega}</td>
+                        <td>${prestamo.observacionesRecibido}</td>
+                        <td>${prestamo.equipo.equ_id}</td>
+                        <td>${prestamo.usuario.usu_Documento}</td>
+                    </tr>`);
+                });
+            },
+            error: function() {
+                console.log("Error al obtener la lista de préstamos");
+            }
+        });
+    }
+
+    // Llamar a la función para obtener la lista de préstamos al cargar la página
+    obtenerListaPrestamos();
 });
+
+
+
+
 
 //ELIMINAR PRESTAMO
 $('#BuscarPrestamo').on('click', function() {
@@ -65,53 +125,6 @@ $('#BuscarPrestamo').on('click', function() {
                 alert("Ha ocurrido un error en la solicitud: " + errorThrown);
             }
         }
-    });
-});
-
-
-// esto es todo lo de insertar
-$(document).ready(function() {
-    $('#Agregar').on('click', function(event) {
-        event.preventDefault();
-
-        // trae informacion de los datos que se insertan desde el formulario html
-        let equipoId = $('#equipoId').val();
-        let usuarioId = $('#usuarioId').val();
-        let fechaEntrega = $('#fechaEntrega').val();
-        let fechaDevolucion = $('#fechaDevolucion').val();
-        let horaEntrega = $('#horaEntrega').val();
-        let horaDevolucion = $('#horaDevolucion').val();
-        let tiempoLimite = $('#tiempoLimite').val();
-        let observacionesEntrega = $('#observacionesEntrega').val();
-        let observacionesRecibido = $('#observacionesRecibido').val();
-        console.log(horaEntrega)
-        //  envia con los datos con el ajax
-        let datosPrestamo = {
-            equipoId: equipoId,
-            usuarioId: usuarioId,
-            fechaEntrega: fechaEntrega,
-            fechaDevolucion: fechaDevolucion,
-            horaEntrega: horaEntrega,
-            horaDevolucion: horaDevolucion,
-            tiempoLimite: tiempoLimite,
-            observacionesEntrega: observacionesEntrega,
-            observacionesRecibido: observacionesRecibido
-            
-        };
-
-        $.ajax({
-            url: "http://localhost:8080/InsertarPrestamo/",
-            type: "POST",
-            dataType: "json",
-            data: JSON.stringify(datosPrestamo),
-            contentType: "application/json",
-            success: function(respuesta) {
-                console.log(respuesta);
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText);
-            }
-        });
     });
 });
 
