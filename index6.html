@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/3d7a846b01.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="ruta/al/archivo/jquery.min.js"></script>
 </head>
 <body id="body">
     
@@ -87,37 +88,94 @@
         <div class="contenedor2">
             
             <div>
-                <!-- Creación de tabla de datos -->
                 <table id="tabla1">
                     <thead>
                         <tr>
-                            <th>Documento</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Tipo</th>
-                            <th>Celular</th>
-                            <th>Correo</th>
-                            <th>Ficha</th>
+                            <th>ID del prestamo</th>
+                            <th>ID Sancion</th>
+                            <th>Hora</th>
+                            <th>Tiempo sancionado</th>
+                            <th>Descripcion</th>
+                            <th>Fecha</th>
                         </tr>
                     </thead>
-                    <tbody id="tabla2-body"></tbody>
+                    <tbody id="tabla1-body"></tbody>
                 </table>
-                <!-- Final de la tabla -->
             </div>
         </div>
 
-        <div class="contenedor3">A</div>
-        <div class="contenedor4">B</div>
-        <div class="contenedor5">C</div>
+        <div class="contenedor3">
+            <h1>Insertar Sancion</h1>
+
+            <form action="" id="formulario">
+            
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="pres_Id" name="pres_Id" placeholder="ID">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="san_Pres_Id" name ="id de la sancion" placeholder="ID Sancion">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="san_Hora" name="Hora" placeholder="Hora">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="san_tiempo" name="Tiempo" placeholder="Tiempo">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="san_Descripcion" name="Descripcion" placeholder="Descripcion">
+                </div>
+                <div class="mb-3">
+                    <input type="date" class="form-control" id="san_Fecha" name="Fecha" placeholder="Fecha">
+                </div>
+                <div class="mb-3">
+                    <button type="button" id="AgregarSancion" class=" btn btn-primary w-100 fs-5 mb-3">Insertar Sancion</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="contenedor4">
+            <h1>Actualizar Sancion</h1>
+
+            <form id="formulario-actualizar">
+                
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="pres_Id" name="equi_id_actualizar" placeholder="ID">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="san_Pres_Id" name="ID Prestamo" placeholder="Id prestamo">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="san_Hora" name="hora" placeholder="Hora">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="san_tiempo" name="Tiempo" placeholder="Tiempo">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="san_Descripcion" name="Descripcion" placeholder="Descripcion">
+                </div>
+                <div class="mb-3">
+                    <input type="date" class="form-control" id="san_Fecha" name="san_Fecha" placeholder="Fecha">
+                </div>
+                <div class="mb-3">
+                    <button type="button" id="ActualizarSancion" class="btn btn-primary w-100 fs-5 mb-3">Actualizar Sancion</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="contenedor5">
+            <h1>Buscar Sancion</h1>
+        </div>
+
+        <div class="contenedor5">
+            <h1>Eliminar Sancion</h1>
+        </div>
         
 
     </section>
-    
-      
 
 
 
-    <script src="/js/script.js"></script>
+    <script src="/js/metods-sanciones.js"></script>
 </body>
 
 
