@@ -108,7 +108,7 @@ $('#BuscarEquipo').on('click', function(){
 });
 
  //ELIMAR POR CODIGO
- $('#EliminarEquipo').on('click', function() {
+$('#EliminarEquipo').on('click', function() {
     let codigo = $("#codigo_equipo").val();
 
     if (codigo === '') {

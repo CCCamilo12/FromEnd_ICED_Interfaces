@@ -93,12 +93,73 @@ $(document).ready(function() {
         url: "http://localhost:8080/ActualizarSanciones/",
         type: 'POST',
         data: DatosEnvio,
-        contentType: "application/json", // Corrección: contentType debe ser "application/json"
-        dataType: "json", // Corrección: dataType debe ser "json"
+        contentType: "application/json",
+        dataType: "json", 
         success: function (respuesta) {
         alert(respuesta);
         listarSanciones();
         }
     });
+    });
+});
+
+
+$('#EliminarSancion').on('click', function() {
+    let codigo = $("#pres_Idd").val();
+
+    if (codigo === '') {
+        alert('Por favor, completa el campo');
+        return; // Detener la ejecución si hay campos vacíos
+    }
+
+    $.ajax({
+        url: "http://localhost:8080/EliminarSanciones/" + codigo,
+        type: "DELETE",
+        success: function(respuesta) {
+            alert(respuesta);
+            listarequipo();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 404) {
+                alert("No se encontró el equipo en la base de datos");
+            } else {
+                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+            }
+        }
+    });
+});
+
+//Buscar Sancion por ID  
+$('#BuscarSancion').on('click', function(){
+    let tablaEquipos = document.querySelector('#tabla1-body');
+    tablaEquipos.innerHTML = ''; 
+    let dato = $("#id_Sancioon").val();
+    $.ajax({
+        url: "http://localhost:8080/BuscarSanciones/" + dato,
+        type: "GET",
+        dataType: "json",
+        success:function(respuesta){
+            if (respuesta.hasOwnProperty('pres_Id')) {
+                tablaEquipos.innerHTML += '<tr>' +
+                '<td>' + respuesta.pres_Id + '</td>' +
+                '<td>' + respuesta.san_Pres_Id + '</td>' +
+                '<td>' + respuesta.san_Hora + '</td>' +
+                '<td>' + respuesta.san_tiempo + '</td>' +
+                '<td>' + respuesta.san_Descripcion + '</td>' +
+                '<td>' + respuesta.san_Fecha + '</td>' +
+                '</tr>'; 
+
+
+            } else {
+            alert("No se encontró la sancion en la base de datos");
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 404) {
+                alert("No se encontró la sancion en la base de datos");
+            } else {
+                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+            }
+        }
     });
 });

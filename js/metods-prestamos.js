@@ -33,7 +33,7 @@ $(document).ready(function() {
 
         // Enviar la solicitud AJAX para agregar el préstamo
         $.ajax({
-            url: "http://localhost:8080/AgregarPrestamo",
+            url: "http://localhost:8080/InsertarPrestamo/",
             type: "POST",
             dataType: "json",
             contentType: "application/json",
@@ -51,10 +51,10 @@ $(document).ready(function() {
         });
     });
 
-    // Función para obtener la lista de préstamos
+// Función para obtener la lista de préstamos
     function obtenerListaPrestamos() {
         $.ajax({
-            url: "http://localhost:8080/InsertarPrestamo/",
+            url: "http://localhost:8080/ListarPrestamos",
             type: "GET",
             dataType: "json",
             success: function(respuesta) {
@@ -88,10 +88,7 @@ $(document).ready(function() {
 });
 
 
-
-
-
-//ELIMINAR PRESTAMO
+//Buscar Prestamo
 $('#BuscarPrestamo').on('click', function() {
     let tablaEquipos = $("#tabla1-body");
     tablaEquipos.empty(); // Limpiar el contenido anterior de la tabla
@@ -127,6 +124,33 @@ $('#BuscarPrestamo').on('click', function() {
         }
     });
 });
+
+//Eliminar prestamo
+$('#EliminarPrestamo').on('click', function() {
+    let codigo = $("#id_prestamoo").val();
+
+    if (codigo === '') {
+        alert('Por favor, completa el campo');
+        return; // Detener la ejecución si hay campos vacíos
+    }
+
+    $.ajax({
+        url: "http://localhost:8080/EliminarPrestamo/" + codigo,
+        type: "DELETE",
+        success: function(respuesta) {
+            alert(respuesta);
+            obtenerListaPrestamos();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 404) {
+                alert("No se encontró el prestamo en la base de datos");
+            } else {
+                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+            }
+        }
+    });
+});
+
 
 //no borrar estas funciones  cargarEquipos(); , cargarUsuarios(); son para que aparezca la informacion  de los select en el formulario html
 
