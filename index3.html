@@ -110,22 +110,53 @@
             <form action="" id="formulario">
             
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_tipo" name ="tipo de equipo" placeholder="Tipo">
+                    <select class="form-control" name="tipo_de_equipo" id="equi_tipo">
+                        <option value="" selected>Tipo</option>
+                        <option value="portatil">Portatil</option>
+                        <option value="video_beam">Video Beam</option>
+                        <option value="cable_hdmi">Cable HDMI</option>
+                    </select>
+                    
+                    
                 </div>
+
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_modelo" name ="modelo de equipo" placeholder="Modelo">
+                    <select class="form-control" name ="modelo de equipo" id="equi_modelo">
+                        <option value="" selected>Modelo</option>
+                        <option value="Hewelt Packard">Hewelt Packard</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="HP">HP</option>
+                    </select>
                 </div>
+
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_color" name="color de equipo" placeholder="Color">
+                    <select class="form-control" name="color de equipo" id="equi_color">
+                        <option value="" selected>Color</option>
+                        <option value="Gris">Gris</option>
+                        <option value="Negro">Negro</option>
+
+                    </select>
+                   
                 </div>
                 <div class="mb-3">
                     <input type="text" class="form-control" id="equi_serial" name="serial de equipo" placeholder="Serial">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_estado" name="Estado del equipo" placeholder="Estado">
+                    <select class="form-control" name="Estado del equipo" id="equi_estado">
+                        <option value="" selected>Estado</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="equi_especialidad" name="Especialidad del equipo" placeholder="Especialidad">
+                    <select class="form-control" name="Especialidad del equipo" id="equi_especialidad">
+                        <option value="" selected>Especialidad</option>
+                        <option value="ADSO">ADSO</option>
+                        <option value="ADSI">ADSI</option>
+                        <option value="CISCO 8.1">CISCO 8.1</option>
+                        <option value="TAURUS">TAURUS</option>
+                    </select>
+
                 </div>
                 <div class="mb-3">
                     <button type="button" id="Agregar" class=" btn btn-primary w-100 fs-5 mb-3">Insertar Equipo</button>

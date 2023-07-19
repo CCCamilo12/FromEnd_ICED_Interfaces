@@ -261,35 +261,34 @@ table th {
 #equi_tipo{
     border: 1px solid #ccc;
     border-radius: 25px;
-    padding: 20px;
+    padding-left: 15px;
     width: 350px;
-    height: 20px;
+    height: 50px;
     margin-bottom: 25px;
     margin-top: -10px;
+    color: black;
 }
 
 #equi_modelo{
     border: 1px solid #ccc;
     border-radius: 25px;
-    padding: 20px;
+    padding-left: 15px;
     width: 350px;
-    height: 20px;
+    height: 50px;
     margin-bottom: 25px;
     margin-top: -10px;
-  
-
+    color: black;
 }
 
 #equi_color{
     border: 1px solid #ccc;
     border-radius: 25px;
-    padding: 20px;
+    padding-left: 15px;
     width: 350px;
-    height: 20px;
+    height: 50px;
     margin-bottom: 25px;
-    margin-top: -10px; 
-    
-
+    margin-top: -10px;
+    color: black;
 }
 
 #equi_serial{
@@ -297,7 +296,7 @@ table th {
     border-radius: 25px;
     padding: 20px;
     width: 350px;
-    height: 20px;
+    height: 50px;
     margin-bottom: 25px;
     margin-top: -10px;
     
@@ -306,24 +305,23 @@ table th {
 #equi_estado{
     border: 1px solid #ccc;
     border-radius: 25px;
-    padding: 20px;
+    padding-left: 15px;
     width: 350px;
-    height: 20px;
+    height: 50px;
     margin-bottom: 25px;
     margin-top: -10px;
-
+    color: black;
 }
 
 #equi_especialidad{
     border: 1px solid #ccc;
     border-radius: 25px;
-    padding: 20px;
+    padding-left: 15px;
     width: 350px;
-    height: 20px;
+    height: 50px;
     margin-bottom: 25px;
     margin-top: -10px;
-   
-
+    color: black;
 }
 
 
