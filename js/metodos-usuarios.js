@@ -109,30 +109,49 @@ $('#EliminarUsuario').on('click',function(){
     });
 });
 
+
 //ACTUALIZAR USUARIO
 $('#ActualizarUsuario').on('click',function(){
-    let datosUsario={
-        usu_Documento:$('#usu_Documento_id_actualizar').val(),
-        usu_Nombre:$('#usu_Nombre_id_actualizar').val(),
-        usu_Apellido:$('#usu_Apellido_id_actualizar').val(),
-        usu_Tipo:$('#usu_Tipo_id_actualizar').val(),
-        usu_Celular:$('#usu_Celular_id_actualizar').val(),    
-        usu_Correo:$('#usu_Correo_id_actualizar').val(),
-        usu_Ficha:$('#usu_Ficha_id_actualizar').val(),
-    }
-    let datosenvio=JSON.stringify(datosUsario)
-    console.log(datosUsario)
-    console.log(datosenvio)
+    let usu_Documento =$('#usu_Documento_id_actualizar').val();
     $.ajax({
-        url: "http://localhost:8080/ActualizarUsuario",
-        type: "POST",
-        data: datosenvio,
-        contentType: "application/JSON",
-        datatype: JSON,
-        success: function(respuesta){
-            alert(respuesta)
-            ListarUsuario();
+        url: "http://localhost:8080/BuscarUsuario/" + usu_Documento,
+        type: "GET",
+        success:function(respuesta){
+            let  usu_Nombre = $('#usu_Nombre_id_actualizar').val();
+            let  usu_Apellido = $('#usu_Apellido_id_actualizar').val();
+            let  usu_Tipo = $('#usu_Tipo_id_actualizar').val();
+            let  usu_Celular = $('#usu_Celular_id_actualizar').val();
+            let  usu_Correo = $('#usu_Correo_id_actualizar').val();
+            let  usu_Ficha = $('#usu_Ficha_id_actualizar').val();
+        
+
+        let datosUsarioActualizados={
+            usu_Documento:usu_Documento,
+            usu_Nombre:usu_Nombre || respuesta.usu_Nombre,
+            usu_Apellido:usu_Apellido || respuesta.usu_Apellido,
+            usu_Tipo:usu_Tipo || respuesta.usu_Tipo,
+            usu_Celular:usu_Celular || respuesta.usu_Celular,
+            usu_Correo:usu_Correo || respuesta.usu_Correo,
+            usu_Ficha:usu_Ficha || respuesta.usu_Ficha
+        };
+
+        let datosUsario = JSON.stringify(datosUsarioActualizados);
+
+        $.ajax({
+            url: "http://localhost:8080/ActualizarUsuario/",
+            type: "POST",
+            data: datosUsario,
+            contentType: "application/JSON",
+            success:function(respuesta){
+                alert(respuesta);
+                ListarUsuario();
+            }
+        });
+    },
+    error: function(error) {
+        console.log(error);
         }
-    })
-})
+    });
+});
+
 
