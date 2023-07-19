@@ -135,40 +135,51 @@ $('#EliminarEquipo').on('click', function() {
 
 // ACTUALIZAR EQUIPO
 $('#ActualizarEquipo').on('click',function(){
-
     let equ_id = $('#equi_id_actualizar').val();
-    let equi_tipo = $('#equi_tipo_actualizar').val();
-    let equi_modelo = $('#equi_modelo_actualizar').val();
-    let equi_color = $('#equi_color_actualizar').val();
-    let equi_serial = $('#equi_serial_actualizar').val();
-    let equi_estado = $('#equi_estado_actualizar').val();
-    let equi_especialidad = $('#equi_especialidad_actualizar').val();
-
-    let datos = {
-        equ_id: equ_id,
-        equi_tipo: equi_tipo,
-        equi_modelo: equi_modelo,
-        equi_color: equi_color,
-        equi_serial: equi_serial,    
-        equi_estado: equi_estado,
-        equi_especialidad: equi_especialidad,
-    };
-
-    let datosenvio = JSON.stringify(datos);
-    console.log(datos);
-    console.log(datosenvio);
     
+    // Realizar una solicitud al servidor para obtener los datos actuales del equipo
     $.ajax({
-        url: "http://localhost:8080/ActualizarEquipo/",
-        type: "POST",
-        data: datosenvio,
-        contentType: "application/JSON",
-        datatype: JSON,
+        url: "http://localhost:8080/BuscarEquipo/" + equ_id,
+        type: "GET",
         success: function(respuesta){
-            alert(respuesta);
-            listarequipo();   
+            // Aquí obtienes los datos actuales del equipo desde la respuesta del servidor
+            
+            // Obtener los nuevos valores del formulario
+            let equi_tipo = $('#equi_tipo_actualizar').val();
+            let equi_modelo = $('#equi_modelo_actualizar').val();
+            let equi_color = $('#equi_color_actualizar').val();
+            let equi_serial = $('#equi_serial_actualizar').val();
+            let equi_estado = $('#equi_estado_actualizar').val();
+            let equi_especialidad = $('#equi_especialidad_actualizar').val();
+            
+            // Combinar los datos actuales con los nuevos valores
+            let datosActualizados = {
+                equ_id: equ_id,
+                equi_tipo: equi_tipo || respuesta.equi_tipo, // Usar el valor actual si no se proporciona uno nuevo
+                equi_modelo: equi_modelo || respuesta.equi_modelo,
+                equi_color: equi_color || respuesta.equi_color,
+                equi_serial: equi_serial || respuesta.equi_serial,
+                equi_estado: equi_estado || respuesta.equi_estado,
+                equi_especialidad: equi_especialidad || respuesta.equi_especialidad
+            };
+
+            let datosenvio = JSON.stringify(datosActualizados);
+            
+            $.ajax({
+                url: "http://localhost:8080/ActualizarEquipo/",
+                type: "POST",
+                data: datosenvio,
+                contentType: "application/JSON",
+                success: function(respuesta){
+                    alert(respuesta);
+                    listarequipo();   
+                }
+            });
         },
-        
+        error: function(error){
+            console.log(error);
+        }
     });
 });
+
 
