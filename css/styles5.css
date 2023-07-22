@@ -219,9 +219,9 @@ main{
 
 .contenedor2{
     background-color: rgb(255, 255, 255);
-    grid-column: 1/8;
+    grid-column: 1/12;
     grid-row: 3/14;
-    border-radius: 6%;
+    border-radius: 2%;
     overflow-y: auto;
     overflow-x: hidden;
     
@@ -340,6 +340,7 @@ main{
 
 
 table {
+    font-size: 15px;
     width: 90%;
     border-collapse: collapse;
     margin: 65px;
