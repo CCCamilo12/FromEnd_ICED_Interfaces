@@ -152,6 +152,64 @@ $('#EliminarPrestamo').on('click', function() {
 });
 
 
+
+// ACTUALIZAR EQUIPO
+$('#ActualizarPrestamo').on('click',function(){
+    let presId = $('#presId').val();
+    
+    // Realizar una solicitud al servidor para obtener los datos actuales del equipo
+    $.ajax({
+        url: "http://localhost:8080/BuscarEquipo/" + presId,
+        type: "GET",
+        success: function(respuesta){
+            // Aquí obtienes los datos actuales del equipo desde la respuesta del servidor
+            
+            // Obtener los nuevos valores del formulario
+            let fechaEntrega = $('#fechaEntrega_actualizar').val();
+            let fechaDevolucion = $('#fechaDevolucion_actualizar').val();
+            let horaEntrega = $('#horaEntrega_actualizar').val();
+            let horaDevolucion = $('#horaDevolucion_actualizar').val();
+            let tiempoLimite = $('#tiempoLimite_actualizar').val();
+            let observacionesEntrega = $('#observacionesEntrega_actualizar').val();
+            let observacionesRecibido = $('#observacionesRecibido_actualizar').val();
+            
+            
+            // Combinar los datos actuales con los nuevos valores
+            let datosActualizados = {
+                presId: presId,
+                equi_tipo: equi_tipo || respuesta.equi_tipo, // Usar el valor actual si no se proporciona uno nuevo
+                equi_modelo: equi_modelo || respuesta.equi_modelo,
+                equi_color: equi_color || respuesta.equi_color,
+                equi_serial: equi_serial || respuesta.equi_serial,
+                equi_estado: equi_estado || respuesta.equi_estado,
+                equi_especialidad: equi_especialidad || respuesta.equi_especialidad
+            };
+
+            let datosenvio = JSON.stringify(datosActualizados);
+            
+            $.ajax({
+                url: "http://localhost:8080/ActualizarEquipo/",
+                type: "POST",
+                data: datosenvio,
+                contentType: "application/JSON",
+                success: function(respuesta){
+                    alert(respuesta);
+                    listarequipo();   
+                }
+            });
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });
+});
+
+
+
+
+
+
+
 //no borrar estas funciones  cargarEquipos(); , cargarUsuarios(); son para que aparezca la informacion  de los select en el formulario html
 
 function cargarEquipos() {
