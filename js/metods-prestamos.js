@@ -45,9 +45,10 @@ $(document).ready(function() {
                 // Restablecer los valores del formulario
                 $("#agregarPrestamoForm")[0].reset();
             },
-            error: function() {
-                console.log("Error al agregar el préstamo");
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log("Error al agregar el préstamo - Código de estado: " + jqXHR.status);
             }
+            
         });
     });
 
@@ -66,12 +67,9 @@ $(document).ready(function() {
                     tablaBody.append(`<tr>
                         <td>${prestamo.presId}</td>
                         <td>${prestamo.fechaEntrega}</td>
-                        <td>${prestamo.fechaDevolucion}</td>
                         <td>${prestamo.horaEntrega}</td>
-                        <td>${prestamo.horaDevolucion}</td>
                         <td>${prestamo.tiempoLimite}</td>
                         <td>${prestamo.observacionesEntrega}</td>
-                        <td>${prestamo.observacionesRecibido}</td>
                         <td>${prestamo.equipo.equ_id}</td>
                         <td>${prestamo.usuario.usu_Documento}</td>
                     </tr>`);
@@ -168,7 +166,6 @@ $('#ActualizarPrestamo').on('click',function(){
             let fechaEntrega = $('#fechaEntrega_actualizar').val();
             let fechaDevolucion = $('#fechaDevolucion_actualizar').val();
             let horaEntrega = $('#horaEntrega_actualizar').val();
-            let horaDevolucion = $('#horaDevolucion_actualizar').val();
             let tiempoLimite = $('#tiempoLimite_actualizar').val();
             let observacionesEntrega = $('#observacionesEntrega_actualizar').val();
             let observacionesRecibido = $('#observacionesRecibido_actualizar').val();

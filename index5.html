@@ -78,12 +78,9 @@
                         <tr>   
                             <th>ID prestamo</th>
                             <th>Fecha de Entrega</th>
-                            <th>Fecha de Devolución</th>
                             <th>Hora de Entrega</th>
-                            <th>Hora de Devolución</th>
                             <th>Tiempo Límite</th>
                             <th>Observaciones de Entrega</th>
-                            <th>Observaciones Recibidas</th>
                             <th>Equipo ID</th>
                             <th>Documento Usuarios</th>
                         </tr>
@@ -95,8 +92,8 @@
         </div>
         <div class="contenedor3">
             <h1>InsertarPrestamos</h1>  
-
             <form id="agregarPrestamoForm">
+                <input type="number" id="presId" placeholder="ID Prestamo" required>
                 <input type="date" id="fechaEntrega" placeholder="Fecha de entrega" required>
                 <input type="text" id="horaEntrega" placeholder="Hora de entrega" required>
                 <input type="text" id="tiempoLimite" placeholder="Tiempo límite" required>
