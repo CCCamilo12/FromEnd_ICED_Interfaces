@@ -1,28 +1,28 @@
+
 $(document).ready(function() {
     // Agregar un préstamo
+    
     $("#agregarPrestamoForm").submit(function(event) {
         event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
         
         // Obtener los valores del formulario
         let fechaEntrega = $("#fechaEntrega").val();
-        let fechaDevolucion = $("#fechaDevolucion").val();
         let horaEntrega = $("#horaEntrega").val();
-        let horaDevolucion = $("#horaDevolucion").val();
         let tiempoLimite = $("#tiempoLimite").val();
         let observacionesEntrega = $("#observacionesEntrega").val();
-        let observacionesRecibido = $("#observacionesRecibido").val();
         let equipoId = $("#equipoId").val();
         let usuarioDocumento = $("#usuarioDocumento").val();
 
+        if (fechaEntrega===''|| horaEntrega===''|| tiempoLimite==='' ||observacionesEntrega===''|| equipoId===''||usuarioDocumento===''){
+            alert("por favor completa todos los campos")
+            return;
+        }
         // Crear el objeto de datos del préstamo
         let nuevoPrestamo = {
             fechaEntrega: fechaEntrega,
-            fechaDevolucion: fechaDevolucion,
             horaEntrega: horaEntrega,
-            horaDevolucion: horaDevolucion,
             tiempoLimite: tiempoLimite,
             observacionesEntrega: observacionesEntrega,
-            observacionesRecibido: observacionesRecibido,
             equipo: {
                 equ_id: equipoId
             },
@@ -30,14 +30,17 @@ $(document).ready(function() {
                 usu_Documento: usuarioDocumento
             }
         };
+        let datosenvio = JSON.stringify(nuevoPrestamo);
+        console.log(nuevoPrestamo);
+        console.log(datosenvio);
 
         // Enviar la solicitud AJAX para agregar el préstamo
         $.ajax({
             url: "http://localhost:8080/InsertarPrestamo/",
             type: "POST",
-            dataType: "json",
-            contentType: "application/json",
-            data: JSON.stringify(nuevoPrestamo),
+            dataType: "json", // Corrección aquí
+            contentType: "application/JSON",
+            data: datosenvio,
             success: function(respuesta) {
                 console.log(respuesta);
                 // Actualizar la lista de préstamos después de agregar uno nuevo
@@ -48,8 +51,8 @@ $(document).ready(function() {
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Error al agregar el préstamo - Código de estado: " + jqXHR.status);
             }
-            
         });
+        
     });
 
 // Función para obtener la lista de préstamos
