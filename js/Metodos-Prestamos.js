@@ -50,6 +50,7 @@ $(document).ready(function() {
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Error al agregar el préstamo - Código de estado: " + jqXHR.status);
+                obtenerListaPrestamos();
             }
         });
         
