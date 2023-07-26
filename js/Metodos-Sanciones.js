@@ -26,45 +26,46 @@ function listarSanciones() {
 }
 listarSanciones();
 
-//Agregar Sanciones
-$('#AgregarSancion').on('click',function(){
-    let pres_Id = $('#pres_Id').val();
+$('#AgregarSancion').on('click', function() {
+    let pres_Id = $('#pres_Id').val(); // Obtener el ID del préstamo al que se asociará la sanción
     let san_Pres_Id = $('#san_Pres_Id').val();
     let san_Hora = $('#san_Hora').val();
     let san_tiempo = $('#san_tiempo').val();
     let san_Descripcion = $('#san_Descripcion').val();
     let san_Fecha = $('#san_Fecha').val();
 
-    if(pres_Id=== ''|| san_Pres_Id ===''|| san_Hora ===''|| san_tiempo ===''|| san_Descripcion ===''|| san_Fecha ===''){
+    if (san_Hora === '' || san_tiempo === '' || san_Descripcion === '' || san_Fecha === '') {
         alert('Completa todos los campos')
-        return;// Detiene la ejecucion si hay error 
+        return;
     }
-    
-    let DatosPrestamo = {
-        pres_Id:pres_Id,
-        san_Pres_Id:san_Pres_Id,
-        san_Hora:san_Hora,
-        san_tiempo:san_tiempo,
-        san_Descripcion:san_Descripcion,
-        san_Fecha:san_Fecha,
-    };
 
-    let DatosEnvio = JSON.stringify(DatosPrestamo);
-    console.log(DatosPrestamo);
+    let DatosSancion = {
+        san_Pres_Id: parseInt(san_Pres_Id), // Convertir a número
+        san_Hora: san_Hora,
+        san_tiempo: parseInt(san_tiempo), // Convertir a número
+        san_Descripcion: san_Descripcion,
+        san_Fecha: san_Fecha,
+    };
+    
+
+    let DatosEnvio = JSON.stringify(DatosSancion);
+    console.log(DatosSancion);
     console.log(DatosEnvio);
 
+    // Enviar la solicitud AJAX con los datos de la sanción y el ID del préstamo
     $.ajax({
         url: "http://localhost:8080/InsertarSanciones/",
-        type:'POST',
+        type: 'POST',
         data: DatosEnvio,
-        contentType: "application/JSON",
-        datatype: JSON,
+        contentType: "application/json",
         success: function (respuesta) {
             alert("Se agrego la Sancion correctamente");
             listarSanciones();
         }
     });
+    
 });
+
 
 
 $(document).ready(function() {

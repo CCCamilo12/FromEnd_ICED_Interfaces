@@ -55,39 +55,38 @@ $(document).ready(function() {
         });
         
     });
-
-// Función para obtener la lista de préstamos
-    function obtenerListaPrestamos() {
-        $.ajax({
-            url: "http://localhost:8080/ListarPrestamos",
-            type: "GET",
-            dataType: "json",
-            success: function(respuesta) {
-                console.log(respuesta);
-                let tablaBody = $("#tabla1-body");
-                tablaBody.empty(); // Limpiar el contenido anterior de la tabla
-
-                respuesta.forEach(function(prestamo) {
-                    tablaBody.append(`<tr>
-                        <td>${prestamo.presId}</td>
-                        <td>${prestamo.fechaEntrega}</td>
-                        <td>${prestamo.horaEntrega}</td>
-                        <td>${prestamo.tiempoLimite}</td>
-                        <td>${prestamo.observacionesEntrega}</td>
-                        <td>${prestamo.equipo.equ_id}</td>
-                        <td>${prestamo.usuario.usu_Documento}</td>
-                    </tr>`);
-                });
-            },
-            error: function() {
-                console.log("Error al obtener la lista de préstamos");
-            }
-        });
-    }
-
     // Llamar a la función para obtener la lista de préstamos al cargar la página
     obtenerListaPrestamos();
 });
+
+// Función para obtener la lista de préstamos
+function obtenerListaPrestamos() {
+    $.ajax({
+        url: "http://localhost:8080/ListarPrestamos",
+        type: "GET",
+        dataType: "json",
+        success: function(respuesta) {
+            console.log(respuesta);
+            let tablaBody = $("#tabla1-body");
+            tablaBody.empty(); // Limpiar el contenido anterior de la tabla
+
+            respuesta.forEach(function(prestamo) {
+                tablaBody.append(`<tr>
+                    <td>${prestamo.presId}</td>
+                    <td>${prestamo.fechaEntrega}</td>
+                    <td>${prestamo.horaEntrega}</td>
+                    <td>${prestamo.tiempoLimite}</td>
+                    <td>${prestamo.observacionesEntrega}</td>
+                    <td>${prestamo.equipo.equ_id}</td>
+                    <td>${prestamo.usuario.usu_Documento}</td>
+                </tr>`);
+            });
+        },
+        error: function() {
+            console.log("Error al obtener la lista de préstamos");
+        }
+    });
+}
 
 
 //Buscar Prestamo
