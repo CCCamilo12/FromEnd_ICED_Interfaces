@@ -1,35 +1,63 @@
-
 $(document).ready(function() {
-    // Agregar un préstamo
+    // listar
+    function obtenerListaPrestamos() {
+        $.ajax({
+            url: "http://localhost:8080/ListarPrestamos",
+            type: "GET",
+            dataType: "json",
+            success: function(respuesta) {
+                console.log(respuesta);
+                let tablaBody = $("#tabla1-body");
+                tablaBody.empty(); // Limpiar el contenido anterior de la tabla
     
-    $("#agregarPrestamoForm").submit(function(event) {
-        event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
-        
-        // Obtener los valores del formulario
-        let fechaEntrega = $("#fechaEntrega").val();
-        let horaEntrega = $("#horaEntrega").val();
-        let tiempoLimite = $("#tiempoLimite").val();
-        let observacionesEntrega = $("#observacionesEntrega").val();
-        let equipoId = $("#equipoId").val();
-        let usuarioDocumento = $("#usuarioDocumento").val();
-
-        if (fechaEntrega===''|| horaEntrega===''|| tiempoLimite==='' ||observacionesEntrega===''|| equipoId===''||usuarioDocumento===''){
-            alert("por favor completa todos los campos")
-            return;
-        }
-        // Crear el objeto de datos del préstamo
-        let nuevoPrestamo = {
-            fechaEntrega: fechaEntrega,
-            horaEntrega: horaEntrega,
-            tiempoLimite: tiempoLimite,
-            observacionesEntrega: observacionesEntrega,
-            equipo: {
-                equ_id: equipoId
+                respuesta.forEach(function(prestamo) {
+                    tablaBody.append(`<tr>
+                        <td>${prestamo.presId}</td>
+                        <td>${prestamo.fechaEntrega}</td>
+                        <td>${prestamo.horaEntrega}</td>
+                        <td>${prestamo.tiempoLimite}</td>
+                        <td>${prestamo.observacionesEntrega}</td>
+                        <td>${prestamo.equipo.equ_id}</td>
+                        <td>${prestamo.usuario.usu_Documento}</td>
+                    </tr>`);
+                });
             },
-            usuario: {
-                usu_Documento: usuarioDocumento
+            error: function() {
+                console.log("Error al obtener la lista de préstamos");
             }
-        };
+        });
+    }
+    
+// Agregar un préstamo
+$('#AgregarPrestamo').on('click', function(event) {
+    event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
+    
+    // Obtener los valores del formulario
+    let fechaEntrega = $("#fechaEntrega").val();
+    let horaEntrega = $("#horaEntrega").val();
+    let tiempoLimite = $("#tiempoLimite").val();
+    let observacionesEntrega = $("#observacionesEntrega").val();
+    let equipoId = $("#equipoId").val();
+    let usuarioDocumento = $("#usuarioDocumento").val();
+
+    if (fechaEntrega === '' || horaEntrega === '' || tiempoLimite === '' || observacionesEntrega === '' || equipoId === '' || usuarioDocumento === '') {
+        alert("Por favor completa todos los campos");
+        return;
+    }
+    
+    // Crear el objeto de datos del préstamo
+    let nuevoPrestamo = {
+        fechaEntrega: fechaEntrega,
+        horaEntrega: horaEntrega,
+        tiempoLimite: tiempoLimite,
+        observacionesEntrega: observacionesEntrega,
+        equipo: {
+            equ_id: equipoId
+        },
+        usuario: {
+            usu_Documento: usuarioDocumento
+        }
+    };
         let datosenvio = JSON.stringify(nuevoPrestamo);
         console.log(nuevoPrestamo);
         console.log(datosenvio);

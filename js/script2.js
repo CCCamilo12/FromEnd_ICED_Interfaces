@@ -16,3 +16,13 @@ function ocultar_menu(){
     nav.style.right = "-250px";
     background_menu.style.display = "none";
 }
+
+$(document).ready(function(){
+    $('.carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
+    });
+});
