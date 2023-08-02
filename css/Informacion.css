@@ -59,12 +59,12 @@ header{
 }
 
 h1{
-    color: white;
+    color: rgb(255, 255, 255);
 
 }
 
 p{
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .menu ul li a{
@@ -207,6 +207,77 @@ p{
     font-size: 20px;
     color: black; 
 }
+/* Estilos para la nueva sección - Más imágenes con información */
+/* Estilos para la nueva sección - Más imágenes con información */
+.container__more-images {
+    background-color: #000000;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.container__more-images h1 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.image-info {
+    max-width: 0px;
+    margin: auto;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tituloimg {
+    text-align: center;
+    color: #000000;
+}
+
+.image-info__img {
+    width: 20px; /* Ajusta el tamaño de la imagen según tu preferencia */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.image-info__text {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+.ubicacion {
+    display: flex; /* Cambiamos el modelo de cajas a Flexbox */
+    max-width: 900px; /* Ajusta el ancho máximo del contenedor principal */
+    margin: auto; /* Centra el contenedor principal horizontalmente */
+    align-items: flex-start; /* Alinea los elementos verticalmente en la parte superior */
+}
+
+.ubicacionInfo {
+
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding-right: 80px; /* Espacio entre el texto y el mapa */
+}
+
+.mapa-contenedor {
+    width: 100%; /* Ajusta el ancho del contenedor del mapa según tus necesidades */
+    height: 150px; /* Ajusta la altura del contenedor del mapa según tus necesidades */
+}
+
+
+
+
+
+footer {
+    background-color: #f2f2f2;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 14px;
+    color: #666;
+  }
+  
 
 
 
