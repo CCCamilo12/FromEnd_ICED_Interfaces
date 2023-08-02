@@ -1,4 +1,4 @@
-    *{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,20 +12,16 @@ body{
 }
 
 
-
-
-
 header{
     width: 100%;
     height: 80px;
     margin-top: 40px;
-    position: fixed;
     z-index: 1;
     padding: 40px;
 }
 
 .container__menu{
-    max-width: 100px;
+    max-width: 1200px;
     height: 100%;
     margin: auto;
     display: flex;
@@ -59,12 +55,12 @@ header{
 }
 
 h1{
-    color: rgb(255, 255, 255);
+    color: white;
 
 }
 
 p{
-    color: rgb(255, 255, 255);
+    color: white;
 }
 
 .menu ul li a{
@@ -89,241 +85,103 @@ p{
 }
 
 
-/*COVER*/
+/*Contenedores*/
 
-
-.container__cover{
-    width: 100%;
-    height: 150px;
-    background-image: url();
-    background-position: right;
-    background-repeat: no-repeat;
-    padding: 40px;
+.cont{
+     background-color: red;
+    max-width: 100%;
+    height: 1500px;
+    display: grid;
+    margin: 3px;
+    margin-top: 3px;
+    grid-template-columns:repeat(11, 1fr);
+    grid-template-rows: repeat(40, 1fr);
+    /*margenes generales*/
+    row-gap: 20px;
+    column-gap: 20px;
+    /*margenes de contenedores*/
+    margin: 3%;
+    padding: 0px;
+    box-sizing: border-box;
+  
 }
 
-.container__cover:first-of-type{
-    height: 600px !important;
+
+.contenedor1{
+    background-image: url(/imagenes/tecnologia.jpg);
+    background-color: rgb(43, 41, 41);
+    grid-column: 1/7;
+    grid-row: 1/20;
+    border-radius: 4%;
+    background-size: cover;
+    background-color: rgba(55, 41, 85, 0.82);
+    background-blend-mode: soft-light;
+    text-align: center;
 }
 
-.cover{
-    max-width: 1200px;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.contenedor1 h1{
+    margin-top: 35%;
+    font-size: 50px;
 }
 
-.container__cover .text{
-    max-width: 400px;
+
+.contenedor2{
+    background-color: rgb(43, 41, 41);
+    grid-column: 7/12;
+    grid-row: 1/8;
+    border-radius: 1%;
 }
 
-.container__cover .text h1{
-    font-size: 36px;
-    font-weight: 600;
+
+
+.contenedor3{
+    background-color: rgb(43, 41, 41);
+    grid-column: 7/12;
+    grid-row: 8/20;
+    border-radius: 1%;
 }
 
-.container__cover .text p{
-    font-size: 18px;
-    margin-top: 40px;
-}
 
-.container__cover .text input{
+.titulo2{
     
-    padding: 18px 80px;
-    border: none;
-    font-size: 16px;
-    border-radius: 50px;
-    margin-top: 40px;
-    background: linear-gradient(to right, #b1a8f5, #4fa8f1);
-    color: white;
-    cursor: pointer;
-    box-shadow: 1px 1px 30px -12px #e6e6e6;
-    transition: all 300ms;
-}
-
-.container__cover .text input:hover{
-    box-shadow: 1px 1px 30px -6px #301f4f;
-}
-
-
-.container__cover .svg img{
-    width: 390px;
-    animation: move-vector 4s linear infinite;
-}
-
-.cover1{
-    max-width: 1200px;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    flex-flow: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-}
-.cover1 .text h1,
-.cover1 .text p {
-    color:#000000
-}
-/* El contenedor cover2 ocupa toda la anchura disponible y se posiciona en el centro de la página */
-.cover2 {
-    max-width: 1200px;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column; /* Cambiamos la dirección de los elementos a columna para que el texto esté encima de las imágenes */
-    align-items: center; /* Centramos los elementos horizontalmente */
-    justify-content: center; /* Centramos los elementos verticalmente */
-}
-
-/* Estilo para el texto en cover2 */
-.cover2 .text {
-    text-align: center; /* Centramos el texto horizontalmente */
-}
-
-/* Estilos para las imágenes en cover2 */
-.cover2 .svg2 {
-    display: flex;
-    justify-content: center; /* Centramos las imágenes horizontalmente */
-}
-
-/* Espacio entre las imágenes */
-.cover2 .svg2 img {
-    width: 200px; /* Ajustamos el ancho de las imágenes a 80px */
-    height: 200px; /* Ajustamos el alto de las imágenes a 80px */
-    margin: 50px; /* Reducimos un poco el espacio entre las imágenes */
-}
-
-/* Ajustes adicionales para el tamaño del texto */
-.cover2 .text h1 {
-    font-size: 28px; /* Reducimos un poco el tamaño del título */
-    font-weight: bold;
-    margin-top: 150px; /* Ajustamos el margen superior */
-    margin-bottom: 10px;
-    color: black; /* Cambiamos el color del título a negro */
-}
-
-.cover2 .text p {
-    font-size: 20px;
-    color: black; 
-}
-/* Estilos para la nueva sección - Más imágenes con información */
-/* Estilos para la nueva sección - Más imágenes con información */
-.container__more-images {
-    background-color: #000000;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.container__more-images h1 {
+    margin: 20px;
     font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    
 }
 
-.image-info {
-    max-width: 0px;
-    margin: auto;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.tituloimg {
-    text-align: center;
-    color: #000000;
+.texto2{
+    
+    margin: 10px;
+    font-size: 19px;
 }
 
-.image-info__img {
-    width: 20px; /* Ajusta el tamaño de la imagen según tu preferencia */
-    height: auto;
-    margin-bottom: 10px;
+
+.titulo3{
+    
+    margin: 20px;
+    font-size: 25px;
+    
 }
 
-.image-info__text {
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: center;
-}
-.ubicacion {
-    display: flex; /* Cambiamos el modelo de cajas a Flexbox */
-    max-width: 900px; /* Ajusta el ancho máximo del contenedor principal */
-    margin: auto; /* Centra el contenedor principal horizontalmente */
-    align-items: flex-start; /* Alinea los elementos verticalmente en la parte superior */
-}
-
-.ubicacionInfo {
-
-    text-align: left; /* Alinea el texto a la izquierda */
-    padding-right: 80px; /* Espacio entre el texto y el mapa */
-}
-
-.mapa-contenedor {
-    width: 100%; /* Ajusta el ancho del contenedor del mapa según tus necesidades */
-    height: 150px; /* Ajusta la altura del contenedor del mapa según tus necesidades */
+.texto3{
+    
+    margin: 10px;
+    font-size: 19px;
 }
 
 
 
 
 
-footer {
-    background-color: #f2f2f2;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  footer p {
-    font-size: 14px;
-    color: #666;
-  }
-  
 
 
 
-/* Estilos para el footer */
+@media screen and (max-width: 720px){
 
-@keyframes move-vector {
-    0%{
-        transform: translateY(15px);
-    }50%{
-        transform: translateY(0px);
-    }100%{
-        transform: translateY(15px);
-    }
-}
-
-
-/*Haciendo la página Responsive*/
-
-@media screen and (max-width: 1700px){
-
-    .container__cover{
-        background-position: 50%;
-    }
-
-}
-
-@media screen and (max-width:1200px){
-
-    header{
-        padding: 40px;
-    }
-
-    .container__cover{
-        background-position: -100px;
-    }
-
-    .container__cover .svg img{
-        width: 500px;
-    }
-
-}
-
-@media screen and (max-width: 1020px){
-
-    .container__cover{
-        background-color: #b1a8f5;
+    body{
+    
+        background-image: linear-gradient(to right,#877aeae2, #b1a8f5);
+        transition: margin-left 500ms  cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     .container__cover .svg img{
@@ -359,7 +217,6 @@ footer {
         margin-top: 30px;
         margin-left: 0;
     }
-
     .menu ul li a{
         color: #bebebe;
     }
