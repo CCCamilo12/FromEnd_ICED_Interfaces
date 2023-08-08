@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="/css/Usuarios.css">
+    <script src="https://kit.fontawesome.com/3d7a846b01.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body id="body" style="max-height: 100vh; overflow-y: scroll;">
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+
+        </div>
+
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="options__menu">	
+
+            <a href="/Equipos.html"  >
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Dispositivos</h4>
+                </div>
+            </a>
+
+            <a href="/Usuarios.html" class="selected">
+                <div class="option">
+                    <i class="fa-solid fa-cloud"></i>
+                    <h4>Usuarios</h4>
+                </div>
+            </a>
+            
+            <a href="/Prestamos.html">
+                <div class="option">
+                    <i class="fa-solid fa-database"></i>
+                    <h4>Prestamos</h4>
+                </div>
+            </a>
+
+            <a href="/Sanciones.html">
+                <div class="option">
+                    <i class="fa-solid fa-code"></i>
+                    <h4>Sanciones</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fa-solid fa-users"></i>
+                    <h4>Contacto</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <h4>Nosotros</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fa-solid fa-plus"></i>
+                    <h4>Nosotros</h4>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <section class="cont">
+
+        <div class="contenedor1">
+            <h1>Lista de usuarios centro</h1>
+        </div>
+        
+        <div class="contenedor2">
+            <div>
+                <table id="tabla1">
+                    <thead>
+                        <tr>
+                            <th>Documento</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Tipo</th>
+                            <th>Celular</th>
+                            <th>Correo</th>
+                            <th>Ficha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla2-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="contenedor3">
+
+            <h1>Insertar Usuario</h1>
+
+            <form action="" id="formulario">
+
+                <div class="mb-3">
+                <input type="text" class="form-control" id="usu_Documento" name="Documento" placeholder="Documento">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Nombre" name ="Nombre" placeholder="Nombre">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Apellido" name ="Apellido" placeholder="Apellido">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Tipo" name="Tipo de Usuario" placeholder="Tipo de Usuario">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Celular" name="Celular" placeholder="Celular">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Correo" name="Correo" placeholder="Correo">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Ficha" name="Ficha" placeholder="Ficha">
+                </div>
+                <div class="mb-3">
+                    <button type="button" id="AgregarUsuario" class=" btn btn-primary w-100 fs-5 mb-3">Insertar Usuario</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="contenedor4">
+            <h1>actualizar Usuario</h1>
+            <form id="formulario-actualizar">
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="usu_Documento_id_actualizar" name="usu_Documento_id_actualizar" placeholder="Documento" >
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Nombre_id_actualizar" name="usu_Nombre_id_actualizar" placeholder="Nombre">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Apellido_id_actualizar" name="usu_Apellido_id_actualizar" placeholder="Apellido">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Tipo_id_actualizar" name="Tipo usu_Tipo_id_actualizar Usuario" placeholder="Tipo de Usuario">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Celular_id_actualizar" name="usu_Celular_id_actualizar" placeholder="Celular">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Correo_id_actualizar" name="usu_Correo_id_actualizar" placeholder="Correo">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="usu_Ficha_id_actualizar" name="usu_Ficha_id_actualizar" placeholder="Ficha">
+                </div>
+                <div class="mb-3">
+                    <button type="button" id="ActualizarUsuario" class="btn btn-primary w-100 fs-5 mb-3">Actualizar usuario</button>
+                </div>
+            </form>
+        </div>
+    
+
+        <div class="contenedor5">
+            <h1>Eliminar Usuario</h1>
+            <label for=""><input type="text" id="documento_usuario" name="documento_usuario" placeholder="Número de Documento"></label>
+            <button type="button" id="EliminarUsuario" class="btn btn-danger w-100 fs-5 mb-3">Eliminar</button>
+        </div>
+
+        <div class="contenedor6">
+            <h1>Buscar Usario</h1>
+            <label for=""><input type="text" id="id_usuarioo" name="id_usuarioo" placeholder="Documento del Usuario"></label>
+            <button type="button" id="BuscarUsuario" class="btn btn-danger w-100 fs-5 mb-3">Buscar</button>
+        </div>
+
+    </section>
+    
+      
+
+
+
+    <script src="js/script.js"></script>
+    <script src="js/Metodos-Usuarios.js"></script>
+</body>
+</html>

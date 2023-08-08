@@ -13,12 +13,12 @@ $(document).ready(function() {
                 respuesta.forEach(function(prestamo) {
                     tablaBody.append(`<tr>
                         <td>${prestamo.presId}</td>
-                        <td>${prestamo.fechaEntrega}</td>
-                        <td>${prestamo.horaEntrega}</td>
-                        <td>${prestamo.tiempoLimite}</td>
-                        <td>${prestamo.observacionesEntrega}</td>
-                        <td>${prestamo.equipo.equ_id}</td>
-                        <td>${prestamo.usuario.usu_Documento}</td>
+                        <td>${prestamo.pres_Fec_Entrega}</td>
+                        <td>${prestamo.pres_Hora_Entrega}</td>
+                        <td>${prestamo.pres_Tiempo_Limite}</td>
+                        <td>${prestamo.pres_Observaciones_Entrega}</td>
+                        <td>${prestamo.equ_id_equipos}</td>
+                        <td>${prestamo.usu_Documento_usurios}</td>
                     </tr>`);
                 });
             },
@@ -31,31 +31,31 @@ $(document).ready(function() {
 // Agregar un préstamo
 $('#AgregarPrestamo').on('click', function(event) {
     event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
-    
     // Obtener los valores del formulario
-    let fechaEntrega = $("#fechaEntrega").val();
-    let horaEntrega = $("#horaEntrega").val();
-    let tiempoLimite = $("#tiempoLimite").val();
-    let observacionesEntrega = $("#observacionesEntrega").val();
-    let equipoId = $("#equipoId").val();
-    let usuarioDocumento = $("#usuarioDocumento").val();
+    let presId = $("#presId").val();
+    let pres_Fec_Entrega = $("#pres_Fec_Entrega").val();
+    let pres_Hora_Entrega = $("#pres_Hora_Entrega").val();
+    let pres_Tiempo_Limite = $("#pres_Tiempo_Limite").val();
+    let pres_Observaciones_Entrega = $("#pres_Observaciones_Entrega").val();
+    let equ_id_equipos = $("#equ_id_equipos").val();
+    let usu_Documento_usurios = $("#usu_Documento_usurios").val();
 
-    if (fechaEntrega === '' || horaEntrega === '' || tiempoLimite === '' || observacionesEntrega === '' || equipoId === '' || usuarioDocumento === '') {
+    if (presId === ''  || pres_Fec_Entrega === '' || pres_Hora_Entrega === '' || pres_Tiempo_Limite === '' || pres_Observaciones_Entrega === '' || equ_id_equipos === '' || usu_Documento_usurios === '') {
         alert("Por favor completa todos los campos");
         return;
     }
-    
     // Crear el objeto de datos del préstamo
     let nuevoPrestamo = {
-        fechaEntrega: fechaEntrega,
-        horaEntrega: horaEntrega,
-        tiempoLimite: tiempoLimite,
-        observacionesEntrega: observacionesEntrega,
+        presId: presId,
+        pres_Fec_Entrega: pres_Fec_Entrega,
+        pres_Hora_Entrega: pres_Hora_Entrega,
+        pres_Tiempo_Limite: pres_Tiempo_Limite,
+        pres_Observaciones_Entrega: pres_Observaciones_Entrega,
         equipo: {
-            equ_id: equipoId
+            equ_id_equipos: equ_id_equipos
         },
         usuario: {
-            usu_Documento: usuarioDocumento
+            usu_Documento_usurios: usu_Documento_usurios
         }
     };
         let datosenvio = JSON.stringify(nuevoPrestamo);
@@ -64,7 +64,7 @@ $('#AgregarPrestamo').on('click', function(event) {
 
         // Enviar la solicitud AJAX para agregar el préstamo
         $.ajax({
-            url: "http://localhost:8080/InsertarPrestamo/",
+            url: "http://localhost:8080/insertarPrestamo",
             type: "POST",
             dataType: "json", // Corrección aquí
             contentType: "application/JSON",

@@ -258,7 +258,7 @@ main{
     text-align: center;
 }
 
-#fechaEntrega{
+#pres_Fec_Entrega{
     border: 1px solid #ccc;
     border-radius: 25px;
     padding-left: 15px;
@@ -271,7 +271,7 @@ main{
     text-align: center;
 }
 
-#horaEntrega{
+#pres_Hora_Entrega{
     border: 1px solid #ccc;
     border-radius: 25px;
     padding-left: 15px;
@@ -284,7 +284,7 @@ main{
     text-align: center;
 }
 
-#tiempoLimite{
+#pres_Tiempo_Limite{
     border: 1px solid #ccc;
     border-radius: 25px;
     padding-left: 15px;
@@ -297,7 +297,7 @@ main{
     text-align: center;
 }
 
-#observacionesEntrega{
+#pres_Observaciones_Entrega{
     border: 1px solid #ccc;
     border-radius: 25px;
     padding-left: 15px;
@@ -310,7 +310,7 @@ main{
     text-align: center;
 }
 
-#equipoId{
+#equ_id_equipos{
     border: 1px solid #ccc;
     border-radius: 25px;
     padding-left: 15px;
@@ -323,7 +323,7 @@ main{
     text-align: center;
 }
 
-#usuarioDocumento{
+#usu_Documento_usurios{
     border: 1px solid #ccc;
     border-radius: 25px;
     padding-left: 15px;

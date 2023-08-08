@@ -20,60 +20,51 @@
     </header>
 
     <div class="menu__side" id="menu_side">
+        <div class="options__menu">	
 
-        <div class="options__menu"> 
-
-            <a href="/vistas-administrador-html/Equipos.html"  >
+            <a href="/Equipos.html">
                 <div class="option">
                     <i class="fas fa-home" title="Inicio"></i>
-                    <h4>Disositivos</h4>
+                    <h4>Dispositivos</h4>
                 </div>
             </a>
-
-            <a href="/vistas-administrador-html/Usuarios.html">
+            <a href="/Usuarios.html">
                 <div class="option">
                     <i class="fa-solid fa-cloud"></i>
                     <h4>Usuarios</h4>
                 </div>
             </a>
-            
-            <a href="/vistas-administrador-html/Prestamos.html" class="selected">
+            <a href="/Prestamos.html" class="selected">
                 <div class="option">
                     <i class="fa-solid fa-database"></i>
                     <h4>Prestamos</h4>
                 </div>
             </a>
-
-            <a href="/vistas-administrador-html/Sanciones.html">
+            <a href="/Sanciones.html">
                 <div class="option">
                     <i class="fa-solid fa-code"></i>
-                    <h4>Saciones</h4>
+                    <h4>Sanciones</h4>
                 </div>
             </a>
-
             <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-users"></i>
                     <h4>Contacto</h4>
                 </div>
             </a>
-
             <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-arrows-rotate"></i>
                     <h4>Nosotros</h4>
                 </div>
             </a>
-
             <a href="#">
                 <div class="option">
                     <i class="fa-solid fa-plus"></i>
                     <h4>Nosotros</h4>
                 </div>
             </a>
-
         </div>
-
     </div>
 
     <section class="cont">
@@ -101,18 +92,18 @@
             </div>
         </div>
         <div class="contenedor3">
-            <h1>InsertarPrestamos</h1>    
+            <h1>InsertarPrestamos</h1>  
             <form id="agregarPrestamoForm">
                 <!-- Los campos para ingresar los datos del préstamo -->
-                <input type="text" id="presId" placeholder="ID del Prestamo" required>
-                <input type="date" id="pres_Fec_Entrega" placeholder="Fecha de entrega" required>
-                <input type="text" id="pres_Hora_Entrega" placeholder="Hora de entrega" required>
-                <input type="text" id="pres_Tiempo_Limite" placeholder="Tiempo límite" required>
-                <input type="text" id="pres_Observaciones_Entrega" placeholder="Observaciones de entrega" required>
-                <input type="text" id="equ_id_equipos" placeholder="ID del equipo" required>
-                <input type="text" id="usu_Documento_usurios" placeholder="Documento del usuario" required>
+                <input type="date" id="fechaEntrega" placeholder="Fecha de entrega" required>
+                <input type="text" id="horaEntrega" placeholder="Hora de entrega" required>
+                <input type="text" id="tiempoLimite" placeholder="Tiempo límite" required>
+                <input type="text" id="observacionesEntrega" placeholder="Observaciones de entrega" required>
+                <input type="text" id="equipoId" placeholder="ID del equipo" required>
+                <input type="text" id="usuarioDocumento" placeholder="Documento del usuario" required>
                 <button type="submit" id="AgregarPrestamo">Agregar préstamo</button>
             </form>
+            
 
         </div>
 
@@ -145,7 +136,7 @@
         </div>
     </section>
 
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
     <script src="/js/Metodos-Prestamos.js"></script>
 </body>
 </html>
