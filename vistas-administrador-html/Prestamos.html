@@ -102,17 +102,21 @@
         </div>
         <div class="contenedor3">
             <h1>InsertarPrestamos</h1>    
+
             <form id="agregarPrestamoForm">
                 <!-- Los campos para ingresar los datos del préstamo -->
-                <input type="text" id="presId" placeholder="ID del Prestamo" required>
                 <input type="date" id="pres_Fec_Entrega" placeholder="Fecha de entrega" required>
                 <input type="text" id="pres_Hora_Entrega" placeholder="Hora de entrega" required>
                 <input type="text" id="pres_Tiempo_Limite" placeholder="Tiempo límite" required>
                 <input type="text" id="pres_Observaciones_Entrega" placeholder="Observaciones de entrega" required>
-                <input type="text" id="equ_id_equipos" placeholder="ID del equipo" required>
-                <input type="text" id="usu_Documento_usurios" placeholder="Documento del usuario" required>
+                
+                <!-- Cambia los campos input por select -->
+                <select id="equipoId" required></select>
+                <select id="usuarioId" required></select>
+                
                 <button type="submit" id="AgregarPrestamo">Agregar préstamo</button>
             </form>
+            
 
         </div>
 

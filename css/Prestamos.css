@@ -310,7 +310,7 @@ main{
     text-align: center;
 }
 
-#equ_id_equipos{
+#equipoId{
     border: 1px solid #ccc;
     border-radius: 25px;
     padding-left: 15px;
@@ -323,7 +323,7 @@ main{
     text-align: center;
 }
 
-#usu_Documento_usurios{
+#usuarioId{
     border: 1px solid #ccc;
     border-radius: 25px;
     padding-left: 15px;
