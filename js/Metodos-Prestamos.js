@@ -64,13 +64,15 @@ $('#AgregarPrestamo').on('click', function(event) {
 
         // Enviar la solicitud AJAX para agregar el préstamo
         $.ajax({
-            url: "http://localhost:8080/insertarPrestamo",
+            url: "http://localhost:8080/insertarPrestamo/"+equ_id_equipos+"/"+usu_Documento_usurios,
             type: "POST",
             dataType: "json", // Corrección aquí
             contentType: "application/JSON",
             data: datosenvio,
             success: function(respuesta) {
+                console.log(datosenvio)
                 console.log(respuesta);
+
                 // Actualizar la lista de préstamos después de agregar uno nuevo
                 obtenerListaPrestamos();
                 // Restablecer los valores del formulario
@@ -250,12 +252,15 @@ function cargarEquipos() {
             selectEquipos.empty();
             
             for (let i = 0; i < respuesta.length; i++) {
-                let option = $("<option></option>").attr("value", respuesta[i].equ_id).text(respuesta[i].equi_tipo);
+                let equipo = respuesta[i];
+                let optionText = equipo.equ_id + " - " + equipo.equi_serial;
+                let option = $("<option></option>").attr("value", equipo.equi_serial).text(optionText);
                 selectEquipos.append(option);
             }
         }
     });
 }
+
 
 function cargarUsuarios() {
     $.ajax({
@@ -263,15 +268,19 @@ function cargarUsuarios() {
         type: "GET",
         dataType: "JSON",
         success: function(respuesta) {
-            let selectUsuarios = $("#usuarioId");
+            let selectUsuarios = $("#usuarioDocumento");
             selectUsuarios.empty();
+            
             for (let i = 0; i < respuesta.length; i++) {
-                let option = $("<option></option>").attr("value", respuesta[i].usu_Documento).text(respuesta[i].usu_Nombre + " " + respuesta[i].usu_Apellido);
+                let usuario = respuesta[i];
+                let optionText = usuario.usu_Documento + " - " + usuario.usu_Nombre + " " + usuario.usu_Apellido;
+                let option = $("<option></option>").attr("value", usuario.usu_Documento).text(optionText);
                 selectUsuarios.append(option);
             }
         }
     });
 }
+
 
 // carga los datos de los selec que hay en el formulario
 $(document).ready(function() {
