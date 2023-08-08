@@ -17,8 +17,8 @@ $(document).ready(function() {
                         <td>${prestamo.pres_Hora_Entrega}</td>
                         <td>${prestamo.pres_Tiempo_Limite}</td>
                         <td>${prestamo.pres_Observaciones_Entrega}</td>
-                        <td>${prestamo.equ_id_equipos}</td>
-                        <td>${prestamo.usu_Documento_usurios}</td>
+                        <td>${prestamo.equ_id_equipos.equ_id}</td>
+                        <td>${prestamo.usu_Documento_usurios.usu_Documento}</td>
                     </tr>`);
                 });
             },
@@ -278,4 +278,5 @@ $(document).ready(function() {
     cargarEquipos();
     cargarUsuarios();
 });
+
 
