@@ -117,6 +117,7 @@ $('#BuscarEquipo').on('click', function(){
                 '<td>' + respuesta.equi_serial + '</td>' +
                 '<td>' + respuesta.equi_estado + '</td>' +
                 '<td>' + respuesta.equi_especialidad + '</td>' +
+                '<td><button class="btnEliminar" onclick="eliminarEquipo(' + respuesta.equ_id + ')">Eliminar</button></td>' +
                 '</tr>'; 
             } else {
                alert("No se encontró el equipo en la base de datos");
@@ -131,6 +132,7 @@ $('#BuscarEquipo').on('click', function(){
         }
     });
 });
+
 
  //ELIMAR POR CODIGO
 $('#EliminarEquipo').on('click', function() {

@@ -192,9 +192,13 @@ main{
 .contenedor1{
     background-color: rgb(255, 255, 255);
     grid-column: 1/12;
-    grid-row: 2/8;
+    grid-row: 4/8;
     border-radius: 1%;
+
+    
 }
+
+
 
 .contenedor2{
     background-color: rgb(255, 255, 255);
@@ -234,31 +238,47 @@ table th {
     border: none; /* Sin borde */
     border-radius: 4px; /* Bordes redondeados */
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: background-color 0.5s ease; 
     margin-top: 4px;
+    
     
 }
 
 .btnActualizar{
-    width: 10%;
+    width: 15%;
+    height: 40px;
     background-color: #61af4c; /* Color de fondo */
     color: white; /* Color del texto */
     padding: 8px 16px; /* Espaciado interno */
     border: none; /* Sin borde */
     border-radius: 4px; /* Bordes redondeados */
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: background-color 0.5s ease; 
+    margin: 10px;
+    
      
 }
 
 .btnInsertar{
-    width: 10%;
+    width: 15%;
+    height: 40px;
     background-color: #4c78af; /* Color de fondo */
     color: white; /* Color del texto */
     padding: 8px 16px; /* Espaciado interno */
     border: none; /* Sin borde */
     border-radius: 4px; /* Bordes redondeados */
     cursor: pointer; /* Cambiar el */
+    transition: background-color 0.5s ease; 
+    margin: 10px;
 
 }
+
+
+
+
+  
+
+
 
 
 .btnEliminar:hover {
