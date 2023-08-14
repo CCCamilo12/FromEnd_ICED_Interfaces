@@ -168,13 +168,12 @@ main{
     padding: 20px;
 }
 
-/*contenedores para el cotenido y el grid*/
+/*contenedor madre que guarda los contenedores hijos*/
 .cont{
 
     max-width: 100%;
     height: 1500px;
     display: grid;
-    margin: 3px;
     margin-top: 3px;
     grid-template-columns:repeat(11, 1fr);
     grid-template-rows: repeat(40, 1fr);
@@ -188,26 +187,65 @@ main{
     
 }
 
-
+/*estilos de los contadores*/
 .contenedor1{
     background-color: rgb(255, 255, 255);
     grid-column: 1/12;
-    grid-row: 4/8;
+    grid-row: 2/6;
     border-radius: 1%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.contenedor2{
+    background-color: rgb(255, 255, 255);
+    grid-column: 1/12;
+    grid-row: 6/12;
+    display: grid;
+    grid-template-columns:repeat(11, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    /*margenes generales*/
+    row-gap: 20px;
+    column-gap: 20px;
+    /*margenes de contenedores*/
 
     
 }
 
 
-
-.contenedor2{
+.contenedor3{
     background-color: rgb(255, 255, 255);
     grid-column: 1/12;
-    grid-row: 8/28;
+    grid-row: 12/30;
     border-radius: 1%;
     overflow-y: auto;
     overflow-x: hidden;
+    position: relative;
 }
+
+
+/*estilos de contadores*/
+
+.contador1{
+    background-color: #0c0c0c;
+    grid-column: 1/5;
+    grid-row: 1/10;
+}
+
+
+.contador2{
+    background-color: #e10e0e;
+    grid-column: 5/8;
+    grid-row: 1/10;
+}
+
+.contador3{ 
+    background-color: #4ae10e;
+    grid-column: 8/12;
+    grid-row: 1/10;
+}
+
+
 
 /*diseño de la tabla*/
 table {
@@ -227,6 +265,7 @@ table th, table td {
 table th {
     background-color: #f2f2f2;
 }
+
 
 
 /* Estilos para los botones de la tabla */
@@ -251,7 +290,7 @@ table th {
     color: white; /* Color del texto */
     padding: 8px 16px; /* Espaciado interno */
     border: none; /* Sin borde */
-    border-radius: 4px; /* Bordes redondeados */
+    border-radius: 4 px; /* Bordes redondeados */
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
     transition: background-color 0.5s ease; 
     margin: 10px;
@@ -270,16 +309,31 @@ table th {
     cursor: pointer; /* Cambiar el */
     transition: background-color 0.5s ease; 
     margin: 10px;
+    
 
 }
 
-
-
-
+/* Estilo para el botón de búsqueda */
+#id_equipoo {
+    width: 10%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
   
+#BuscarEquipo {
+  
+    width: 10%;
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
-
-
+/*estilos de los botones para que cambien de color*/
 
 .btnEliminar:hover {
     background-color: #e77d26; 
@@ -350,89 +404,32 @@ table th {
 }
 
 
-#equi_id_actualizar{
+/*estilos del formulario de actualizar*/
 
-    border:  1px solid  #ccc;
-    border-radius: 15px;
-    width: 300px;
-    height: 50px;
-    margin-bottom: 10px;
-    color: black;
-    text-align: center;
-}
-
-#equi_tipo_actualizar{
-
-    border:  1px solid  #ccc;
-    border-radius: 15px;
-    width: 300px;
-    height: 50px;
-    margin-bottom: 10px;
-    color: black;
-    text-align: center;
-}
-
-#equi_modelo_actualizar{
-
-    border:  1px solid  #ccc;
-    border-radius: 15px;
-    width: 300px;
-    height: 50px;
-    margin-bottom: 10px;
-    color: black;
-    text-align: center;
-}
-
-#equi_color_actualizar{
-
-   border:  1px solid  #ccc;
-   border-radius: 15px;
-   width: 300px;
-   height: 50px;
-   margin-bottom: 10px;
-   color: black;
-   text-align: center;
-}
-
-#equi_serial_actualizar{
-
-   border:  1px solid  #ccc;
-   border-radius: 15px;
-   width: 300px;
-   height: 50px;
-   margin-bottom: 10px;
-   color: black;
-   text-align: center;
-}
-
-#equi_estado_actualizar{
-
-   border:  1px solid  #ccc;
-   border-radius: 15px;
-   width: 300px;
-   height: 50px;
-   margin-bottom: 10px;
-   color: black;
-   text-align: center;
-}
-
+#equi_id_actualizar,
+#equi_tipo_actualizar,
+#equi_modelo_actualizar,
+#equi_color_actualizar,
+#equi_serial_actualizar,
+#equi_estado_actualizar,
+#equi_especialidad_actualizar,
 #equi_especialidad_actualizar{
 
-   border:  1px solid  #ccc;
-   border-radius: 15px;
-   width: 300px;
-   height: 50px;
-   margin-bottom: 10px;
-   color: black;
-   text-align: center;
+    margin-top: 1%;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px;
+    height: 30px;
+    margin-bottom: 15px;
 }
 
 #ActualizarEquipo {
     border: none;
     background-color: #b491ce;
     border-radius: 15px;
-    width: 300px;
-    height: 50px;
+    width: 250px;
+    height: 40px;
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
@@ -444,7 +441,9 @@ table th {
     background-color:  #8acbff; /* Cambio de color al pasar el mouse por encima */
 }
 
-/*clases para mover el menu */
+
+
+/*clases para mover el menu para que tenga movimiento */
 
 .body_move{
     margin-left: 250px;

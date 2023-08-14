@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/3d7a846b01.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body id="body" style="max-height: 100vh; overflow-y: scroll;">
     <header>
@@ -81,10 +82,37 @@
     <section class="cont">
         
         <div class="contenedor1">
+             <h1>metodos</h1>
             <button class="btnActualizar">actualizar</button>
             <button class="btnInsertar">Insertar</button>
             <label for=""><input type="text" id="id_equipoo" name="id_equipoo" placeholder="equipo"></label>
             <button type="button" id="BuscarEquipo" class="btn btn-danger w-100 fs-5 mb-3">Buscar</button>
+        </div>
+
+        <div class="contenedor2">
+            <div class="contador1">A</div>
+            <div class="contador2">B</div>
+            <div class="contador3">C</div>
+        </div>
+
+        <div class="contenedor3">    
+            <div>
+                <table id="tabla1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Dispositivo</th>
+                            <th>Modelo</th>
+                            <th>Color</th>
+                            <th>Serial</th>
+                            <th>Estado</th>
+                            <th>Especialidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla1-body"></tbody>
+                </table>
+            </div>
         </div>
 
         <!--modal1-->
@@ -199,25 +227,7 @@
         
 
 
-        <div class="contenedor2">    
-            <div>
-                <table id="tabla1">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Dispositivo</th>
-                            <th>Modelo</th>
-                            <th>Color</th>
-                            <th>Serial</th>
-                            <th>Estado</th>
-                            <th>Especialidad</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla1-body"></tbody>
-                </table>
-            </div>
-        </div>
+       
 
         
 

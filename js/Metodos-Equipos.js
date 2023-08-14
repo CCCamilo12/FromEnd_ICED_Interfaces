@@ -31,22 +31,40 @@ function listarequipo() {
 
 // Nueva función para eliminar equipos
 function eliminarEquipo(equ_id) {
-    $.ajax({
-        url: "http://localhost:8080/Eliminar/" + equ_id,
-        type: "DELETE",
-        success: function(respuesta) {
-            alert(respuesta);
-            listarequipo();
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            if (jqXHR.status === 404) {
-                alert("No se encontró el equipo en la base de datos");
-            } else {
-                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
-            }
+    // Mostrar un SweetAlert2 de confirmación antes de realizar la eliminación
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Esta acción no se puede deshacer',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma, realizar la solicitud de eliminación
+            $.ajax({
+                url: "http://localhost:8080/Eliminar/" + equ_id,
+                type: "DELETE",
+                success: function(respuesta) {
+                    Swal.fire({
+                        title: '¡Eliminado!',
+                        text: 'El equipo ha sido eliminado.',
+                        icon: 'success'
+                    });
+                    listarequipo();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status === 404) {
+                        Swal.fire('Error', 'No se encontró el equipo en la base de datos', 'error');
+                    } else {
+                        Swal.fire('Error', 'Ha ocurrido un error en la solicitud: ' + errorThrown, 'error');
+                    }
+                }
+            });
         }
     });
 }
+
 
 
 
@@ -81,8 +99,6 @@ $('#Agregar').on('click',function(){
     };
 
     let datosenvio = JSON.stringify(datos);
-    console.log(datos);
-    console.log(datosenvio);
     
     $.ajax({
         url: "http://localhost:8080/insertarEquipo",
@@ -91,12 +107,18 @@ $('#Agregar').on('click',function(){
         contentType: "application/JSON",
         datatype: JSON,
         success: function(respuesta){
-            alert("Se agregó el equipo con éxito");
-            listarequipo();   
+            Swal.fire({
+                icon: 'success',
+                title: 'Éxito',
+                text: 'Se agregó el equipo con éxito',
+            }).then(function() {
+                listarequipo();
+            });
         },
         
     });
 });
+
 
 //BUSCAR EQUIPO
 $('#BuscarEquipo').on('click', function(){
@@ -132,7 +154,6 @@ $('#BuscarEquipo').on('click', function(){
         }
     });
 });
-
 
  //ELIMAR POR CODIGO
 $('#EliminarEquipo').on('click', function() {
