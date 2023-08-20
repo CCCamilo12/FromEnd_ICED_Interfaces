@@ -52,6 +52,7 @@ function eliminarEquipo(equ_id) {
                         icon: 'success'
                     });
                     listarequipo();
+                    obtenerCantidadEquipos(); // Actualizar el contador después de eliminar
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     if (jqXHR.status === 404) {
@@ -64,9 +65,6 @@ function eliminarEquipo(equ_id) {
         }
     });
 }
-
-
-
 
 //funcion para listar
 listarequipo(); 
@@ -113,6 +111,7 @@ $('#Agregar').on('click',function(){
                 text: 'Se agregó el equipo con éxito',
             }).then(function() {
                 listarequipo();
+                obtenerCantidadEquipos(); // Actualizar el contador después de eliminar
             });
         },
         
@@ -155,31 +154,7 @@ $('#BuscarEquipo').on('click', function(){
     });
 });
 
- //ELIMAR POR CODIGO
-$('#EliminarEquipo').on('click', function() {
-    let codigo = $("#codigo_equipo").val();
 
-    if (codigo === '') {
-        alert('Por favor, completa el campo');
-        return; // Detener la ejecución si hay campos vacíos
-    }
-
-    $.ajax({
-        url: "http://localhost:8080/Eliminar/" + codigo,
-        type: "DELETE",
-        success: function(respuesta) {
-            alert(respuesta);
-            listarequipo();
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            if (jqXHR.status === 404) {
-                alert("No se encontró el equipo en la base de datos");
-            } else {
-                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
-            }
-        }
-    });
-});
 
 // ACTUALIZAR EQUIPO
 $('#ActualizarEquipo').on('click',function(){
@@ -230,3 +205,24 @@ $('#ActualizarEquipo').on('click',function(){
     });
 });
 
+
+//funciones adicionales para los contadores
+
+//Funcion para contar equipos
+function obtenerCantidadEquipos() {
+    $.ajax({
+        url: "http://localhost:8080/count",
+        type: "GET",
+        dataType: "text",
+        success: function(respuesta) {
+            $('.cantidad').text(respuesta); // Actualiza el contenido del contador1 con la cantidad obtenida
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log("Error al obtener la cantidad de equipos:", errorThrown);
+        }
+    });
+}
+
+$(document).ready(function() {
+    obtenerCantidadEquipos();
+});
