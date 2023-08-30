@@ -122,8 +122,7 @@ $('#Agregar').on('click',function(){
     });
 });
 
-
-//BUSCAR EQUIPO
+//Funcion para buscar equipo
 $('#BuscarEquipo').on('click', function(){
     let tablaEquipos = document.querySelector('#tabla1-body');
     tablaEquipos.innerHTML = ''; 
@@ -142,23 +141,47 @@ $('#BuscarEquipo').on('click', function(){
                 '<td>' + respuesta.equi_serial + '</td>' +
                 '<td>' + respuesta.equi_estado + '</td>' +
                 '<td>' + respuesta.equi_especialidad + '</td>' +
-                '<td><button class="btnEliminar" onclick="eliminarEquipo(' + respuesta.equ_id + ')">Eliminar</button></td>' +
-                '</tr>'; 
+                '<td>' +
+                '<div class="btn-container">' +
+                '<button class="btnEliminar" onclick="eliminarEquipo(' + respuesta.equ_id + ')">Eliminar</button>' +
+                '<button class="btnActualizar" onclick="actualizarEquipo(' + respuesta.equ_id + ')">Actualizar</button>' +
+                '</div>' +
+                '</td>' +
+                '</tr>';
             } else {
-               alert("No se encontró el equipo en la base de datos");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'No se encontró el equipo en la base de datos',
+                    confirmButtonText: 'Aceptar'
+                }).then(() => {
+                    listarequipo(); // Volver a listar los equipos existentes
+                });
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             if (jqXHR.status === 404) {
-                alert("No se encontró el equipo en la base de datos");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'No se encontró el equipo en la base de datos',
+                    confirmButtonText: 'Aceptar'
+                }).then(() => {
+                    listarequipo(); // Volver a listar los equipos existentes
+                });
             } else {
-                alert("Ha ocurrido un error en la solicitud: " + errorThrown);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Ha ocurrido un error en la solicitud: ' + errorThrown,
+                    confirmButtonText: 'Aceptar'
+                });
             }
         }
     });
 });
 
-
+//funcion para atrapar y actualizar datos
 function actualizarEquipo(equ_id) {
     // Realiza una solicitud al servidor para obtener los datos del equipo
     $.ajax({
@@ -178,43 +201,51 @@ function actualizarEquipo(equ_id) {
             console.log(error);
         }
     });
+
+    $('#ActualizarEquipo').on('click', function(){
+        // Obtener los valores de los campos del formulario
+        let equ_id = $('#equi_id_actualizar').val();
+        let equi_tipo = $('#equi_tipo_actualizar').val();
+        let equi_modelo = $('#equi_modelo_actualizar').val();
+        let equi_color = $('#equi_color_actualizar').val();
+        let equi_serial = $('#equi_serial_actualizar').val();
+        let equi_estado = $('#equi_estado_actualizar').val();
+        let equi_especialidad = $('#equi_especialidad_actualizar').val();
+        
+        // Crear un objeto con los datos actualizados
+        let datosActualizados = {
+            equ_id: equ_id,
+            equi_tipo: equi_tipo,
+            equi_modelo: equi_modelo,
+            equi_color: equi_color,
+            equi_serial: equi_serial,
+            equi_estado: equi_estado,
+            equi_especialidad: equi_especialidad
+        };
+    
+        let datosenvio = JSON.stringify(datosActualizados);
+        
+        $.ajax({
+            url: "http://localhost:8080/ActualizarEquipo/",
+            type: "POST",
+            data: datosenvio,
+            contentType: "application/JSON",
+            success: function(respuesta){
+                // Mostrar SweetAlert en caso de éxito
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Éxito!',
+                    text: 'El dispositivo se actualizó con éxito.',
+                    confirmButtonText: 'Aceptar'
+                }).then(() => {
+                    listarequipo(); // Llamar a la función de listado de equipos
+                });
+            }
+        });
+    });
 }
 
 
-$('#ActualizarEquipo').on('click', function(){
-    // Obtener los valores de los campos del formulario
-    let equ_id = $('#equi_id_actualizar').val();
-    let equi_tipo = $('#equi_tipo_actualizar').val();
-    let equi_modelo = $('#equi_modelo_actualizar').val();
-    let equi_color = $('#equi_color_actualizar').val();
-    let equi_serial = $('#equi_serial_actualizar').val();
-    let equi_estado = $('#equi_estado_actualizar').val();
-    let equi_especialidad = $('#equi_especialidad_actualizar').val();
-    
-    // Crear un objeto con los datos actualizados
-    let datosActualizados = {
-        equ_id: equ_id,
-        equi_tipo: equi_tipo,
-        equi_modelo: equi_modelo,
-        equi_color: equi_color,
-        equi_serial: equi_serial,
-        equi_estado: equi_estado,
-        equi_especialidad: equi_especialidad
-    };
-
-    let datosenvio = JSON.stringify(datosActualizados);
-    
-    $.ajax({
-        url: "http://localhost:8080/ActualizarEquipo/",
-        type: "POST",
-        data: datosenvio,
-        contentType: "application/JSON",
-        success: function(respuesta){
-            alert(respuesta);
-            listarequipo();   
-        }
-    });
-});
 
 
 

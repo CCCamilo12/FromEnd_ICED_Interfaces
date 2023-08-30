@@ -438,3 +438,39 @@ $('#ActualizarEquipo').on('click',function(){
         }
     });
 });
+
+
+
+function ListarUsuario() {
+    $(document).ready(function() {
+        $('body').load('load', function(){
+            let tablaBody = document.querySelector('#tabla2-body');
+            tablaBody.innerHTML = '';
+            $.ajax({
+                url: "http://localhost:8080/ListarUsuarios",
+                type: "GET",
+                dataType: "JSON",
+                success: function(respuesta) {
+                    console.log(respuesta);
+                    for (let i = 0; i < respuesta.length; i++) {
+                        tablaBody.innerHTML += '<tr>' +
+                            '<td>' + respuesta[i].usu_Documento + '</td>' +
+                            '<td>' + respuesta[i].usu_Nombre + '</td>' +
+                            '<td>' + respuesta[i].usu_Apellido + '</td>' +
+                            '<td>' + respuesta[i].usu_Tipo + '</td>' +
+                            '<td>' + respuesta[i].usu_Celular + '</td>' +
+                            '<td>' + respuesta[i].usu_Correo + '</td>' +
+                            '<td>' + respuesta[i].usu_Ficha + '</td>' +
+                            '<td>'+
+                            '<div class="btn-container">' +
+                            '<button class="btnEliminar" onclick="eliminarUsuario(' + respuesta[i].usu_Documento + ')">Eliminar</button>'+
+                            '<button class="btnActualizar" onclick="actualizarUsuario(' + respuesta[i].equ_id + ')">Actualizar</button>' +
+                            '</div>' +
+                            '</td>' +
+                            '</tr>';
+                    }
+                }
+            });
+        });
+    });
+}

@@ -185,34 +185,39 @@ main{
     padding: 0px;
     box-sizing: border-box;
     
-}
-
-/*estilos de los contadores*/
-.cabezera{
-    background-color: rgb(255, 255, 255);
-    grid-column: 1/13;
-    grid-row: 2/4;
-    border-radius: 1%;
-
-}
-
-.cabezera h1{
-    text-align: center;
-    margin-top: 1%;
-}
-
-
-
-.contenedor1{
-    background-color: rgb(255, 255, 255);
-    grid-column: 1/13;
-    grid-row: 4/7;
-    border-radius: 1%;
+  }
   
-}
-
-
-.contenedor3{
+  /*estilos de los contadores*/
+  .cabezera{
+    background-color: rgb(255, 255, 255);
+    grid-column: 1/13;
+    grid-row: 1/5;
+    border-radius: 3%;
+    margin: 10px;
+    margin-top: 30px;
+  
+  }
+  
+  .cabezera h1{
+    text-align: center;
+    margin-top: 25px;
+  }
+  
+  
+  
+  .contenedor1{
+    background-color: rgb(255, 255, 255);
+    grid-column: 1/13;
+    grid-row: 3/6;
+    border-radius: 3%;
+    margin: 10px;
+  
+    
+  
+  }
+  
+  
+  .contenedor3{
     background-color: rgb(255, 255, 255);
     grid-column: 1/13;
     grid-row: 12/30;
@@ -220,91 +225,92 @@ main{
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-}
-
-
-/*estilos de contadores*/
-
-.contador1{
+  }
+  
+  
+  /*estilos de contadores*/
+  
+  .contador1{
     background-color: rgb(255, 255, 255);
     grid-column: 1/5;
-    grid-row: 7/12;
-    border-radius: 1%;
+    grid-row: 6/12;
+    border-radius: 8%;
     
     
-}
-
-
-.contador2 {
+    
+  }
+  
+  
+  .contador2 {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(255, 255, 255);
     grid-column: 5/9;
-    grid-row: 7/12;
-    border-radius: 1%;
+    grid-row: 6/12;
+    border-radius: 8%;
     padding: 20px; /* Agregamos un poco de espacio interno */
-}
-
-
-.contador2 h1 {
-
+  
+  }
+  
+  
+  .contador2 h1 {
+  
     font-size: 15px;
     
-}
-
-.icon-container {
+  }
+  
+  .icon-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.icon-container i {
+  }
+  
+  .icon-container i {
     color: #8acbff;
     font-size: 45px; /* Ajusta el tamaño del icono según tus preferencias */
     margin-bottom: 30px; /* Agregamos espacio entre el icono y el h1 */
-}
-
-.cantidad {
+  }
+  
+  .cantidad {
     text-align: center;
-}
-
-
-
-.contador3{
+  }
+  
+  
+  
+  .contador3{
     background-color: rgb(255, 255, 255);
     grid-column: 9/13;
-    grid-row: 7/12;
-    border-radius: 1%;
-}
-
-
-
-/*diseño de la tabla*/
-table {
+    grid-row: 6/12;
+    border-radius: 8%;
+  
+  }
+  
+  
+  /*diseño de la tabla*/
+  table {
     width: 95%;
     margin: 40px;
     margin-top: 20px;
-}
-
-table th, table td {
+  }
+  
+  table th, table td {
     width: 13%;
     border-bottom: 1px solid #ccc;
     padding: 5px;
     text-align: center;
     font-size: 15px;
-}
-
-table th {
+  }
+  
+  table th {
     background-color: #f2f2f2;
-}
-
-
-
-.btn-container {
+  }
+  
+  .btn-container {
     display: flex; /* Mostrar los botones en línea uno al lado del otro */
     gap: 10px; /* Espacio entre los botones */
-}
+  }
+  
 
 
 /* Estilos para los botones de la tabla */
@@ -483,6 +489,47 @@ table th {
 
 
 /*estilos de formulario de insertar*/
+#equi_tipo,
+#equi_modelo,
+#equi_color,
+#equi_serial,
+#equi_estado,
+#equi_especialidad {
+  
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    outline: none;
+    width: 250px;
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+
+
+
+#Agregar {
+    border: none;
+    background-color: #b491ce;
+    border-radius: 15px;
+    width: 250px;
+    height: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+#Agregar:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
 
 
 /*clases para mover el menu para que tenga movimiento */
@@ -624,22 +671,6 @@ table th {
 
     /*estilos de los botones*/
 
-    .btnActualizar{
-        width: 60%;
-        height: 50px;
-        margin-top: 60px;
-        background-color: #61af4c; /* Color de fondo */
-        color: white; /* Color del texto */
-        padding: 8px 16px; /* Espaciado interno */
-        border: none; /* Sin borde */
-        border-radius: 4px; /* Bordes redondeados */
-        cursor: pointer; /* Cambiar el cursor al pasar por encima */
-        transition: background-color 0.5s ease; 
-        margin-left: 20%;
-     
-        
-        
-    }
       
     .btnInsertar{
         width: 60%;
@@ -651,6 +682,8 @@ table th {
         cursor: pointer; /* Cambiar el */
         transition: background-color 0.5s ease;
         margin-left: 20%;
+        margin-top: 20%;
+       
       
     }
     
