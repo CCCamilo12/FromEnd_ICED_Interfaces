@@ -51,6 +51,7 @@ function eliminarUsuario(usu_Documento) {
                         icon: 'success'
                     });
                     ListarUsuario();
+                    obtenerCantidadUsuarios();
                     //aqui otro listar
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -90,6 +91,7 @@ $('#AgregarUsuario').on('click',function(){
         success: function(respuesta){
             alert(respuesta)
             ListarUsuario();
+            obtenerCantidadUsuarios();
         }
     })
 })
@@ -201,4 +203,24 @@ $('#ActualizarUsuario').on('click',function(){
     });
 });
 
+
+//funciones adicionales
+
+function obtenerCantidadUsuarios() {
+    $.ajax({
+        url: "http://localhost:8080/contarUsuarios",
+        type: "GET",
+        dataType: "text",
+        success: function(respuesta) {
+            $('.cantidad').text(respuesta); // Actualiza el contenido del contador1 con la cantidad obtenida
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log("Error al obtener la cantidad de usuarios:", errorThrown);
+        }
+    });
+}
+
+$(document).ready(function() {
+    obtenerCantidadUsuarios();
+});
 

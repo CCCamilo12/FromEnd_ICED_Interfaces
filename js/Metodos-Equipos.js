@@ -1,4 +1,3 @@
-
 //TABLA DONDE SE LISTAN LOS DATOS QUE AGREGAMOS
 function listarequipo() {
     $(document).ready(function() {
@@ -13,15 +12,20 @@ function listarequipo() {
                     console.log(respuesta);
                     for (let i = 0; i < respuesta.length; i++) {
                         tablaBody.innerHTML += '<tr>' +
-                            '<td>' + respuesta[i].equ_id + '</td>' +
-                            '<td>' + respuesta[i].equi_tipo + '</td>' +
-                            '<td>' + respuesta[i].equi_modelo + '</td>' +
-                            '<td>' + respuesta[i].equi_color + '</td>' +
-                            '<td>' + respuesta[i].equi_serial + '</td>' +
-                            '<td>' + respuesta[i].equi_estado + '</td>' +
-                            '<td>' + respuesta[i].equi_especialidad + '</td>' +
-                            '<td><button class="btnEliminar" onclick="eliminarEquipo(' + respuesta[i].equ_id + ')">Eliminar</button></td>' +
-                            '</tr>';
+                        '<td>' + respuesta[i].equ_id + '</td>' +
+                        '<td>' + respuesta[i].equi_tipo + '</td>' +
+                        '<td>' + respuesta[i].equi_modelo + '</td>' +
+                        '<td>' + respuesta[i].equi_color + '</td>' +
+                        '<td>' + respuesta[i].equi_serial + '</td>' +
+                        '<td>' + respuesta[i].equi_estado + '</td>' +
+                        '<td>' + respuesta[i].equi_especialidad + '</td>' +
+                        '<td>' +
+                        '<div class="btn-container">' +
+                        '<button class="btnEliminar" onclick="eliminarEquipo(' + respuesta[i].equ_id + ')">Eliminar</button>' +
+                        '<button class="btnActualizar" onclick="actualizarEquipo(' + respuesta[i].equ_id + ')">Actualizar</button>' +
+                        '</div>' +
+                        '</td>' +
+                        '</tr>';
                     }
                 }
             });
@@ -155,55 +159,65 @@ $('#BuscarEquipo').on('click', function(){
 });
 
 
-
-// ACTUALIZAR EQUIPO
-$('#ActualizarEquipo').on('click',function(){
-    let equ_id = $('#equi_id_actualizar').val();
-    
-    // Realizar una solicitud al servidor para obtener los datos actuales del equipo
+function actualizarEquipo(equ_id) {
+    // Realiza una solicitud al servidor para obtener los datos del equipo
     $.ajax({
         url: "http://localhost:8080/BuscarEquipo/" + equ_id,
         type: "GET",
         success: function(respuesta){
-            // Aquí obtienes los datos actuales del equipo desde la respuesta del servidor
-            
-            // Obtener los nuevos valores del formulario
-            let equi_tipo = $('#equi_tipo_actualizar').val();
-            let equi_modelo = $('#equi_modelo_actualizar').val();
-            let equi_color = $('#equi_color_actualizar').val();
-            let equi_serial = $('#equi_serial_actualizar').val();
-            let equi_estado = $('#equi_estado_actualizar').val();
-            let equi_especialidad = $('#equi_especialidad_actualizar').val();
-            
-            // Combinar los datos actuales con los nuevos valores
-            let datosActualizados = {
-                equ_id: equ_id,
-                equi_tipo: equi_tipo || respuesta.equi_tipo, // Usar el valor actual si no se proporciona uno nuevo
-                equi_modelo: equi_modelo || respuesta.equi_modelo,
-                equi_color: equi_color || respuesta.equi_color,
-                equi_serial: equi_serial || respuesta.equi_serial,
-                equi_estado: equi_estado || respuesta.equi_estado,
-                equi_especialidad: equi_especialidad || respuesta.equi_especialidad
-            };
-
-            let datosenvio = JSON.stringify(datosActualizados);
-            
-            $.ajax({
-                url: "http://localhost:8080/ActualizarEquipo/",
-                type: "POST",
-                data: datosenvio,
-                contentType: "application/JSON",
-                success: function(respuesta){
-                    alert(respuesta);
-                    listarequipo();   
-                }
-            });
+            // Rellena los campos del formulario con los datos obtenidos
+            $('#equi_id_actualizar').val(respuesta.equ_id);
+            $('#equi_tipo_actualizar').val(respuesta.equi_tipo);
+            $('#equi_modelo_actualizar').val(respuesta.equi_modelo);
+            $('#equi_color_actualizar').val(respuesta.equi_color);
+            $('#equi_serial_actualizar').val(respuesta.equi_serial);
+            $('#equi_estado_actualizar').val(respuesta.equi_estado);
+            $('#equi_especialidad_actualizar').val(respuesta.equi_especialidad);
         },
         error: function(error){
             console.log(error);
         }
     });
+}
+
+
+$('#ActualizarEquipo').on('click', function(){
+    // Obtener los valores de los campos del formulario
+    let equ_id = $('#equi_id_actualizar').val();
+    let equi_tipo = $('#equi_tipo_actualizar').val();
+    let equi_modelo = $('#equi_modelo_actualizar').val();
+    let equi_color = $('#equi_color_actualizar').val();
+    let equi_serial = $('#equi_serial_actualizar').val();
+    let equi_estado = $('#equi_estado_actualizar').val();
+    let equi_especialidad = $('#equi_especialidad_actualizar').val();
+    
+    // Crear un objeto con los datos actualizados
+    let datosActualizados = {
+        equ_id: equ_id,
+        equi_tipo: equi_tipo,
+        equi_modelo: equi_modelo,
+        equi_color: equi_color,
+        equi_serial: equi_serial,
+        equi_estado: equi_estado,
+        equi_especialidad: equi_especialidad
+    };
+
+    let datosenvio = JSON.stringify(datosActualizados);
+    
+    $.ajax({
+        url: "http://localhost:8080/ActualizarEquipo/",
+        type: "POST",
+        data: datosenvio,
+        contentType: "application/JSON",
+        success: function(respuesta){
+            alert(respuesta);
+            listarequipo();   
+        }
+    });
 });
+
+
+
 
 
 //funciones adicionales para los contadores
@@ -211,7 +225,7 @@ $('#ActualizarEquipo').on('click',function(){
 //Funcion para contar equipos
 function obtenerCantidadEquipos() {
     $.ajax({
-        url: "http://localhost:8080/count",
+        url: "http://localhost:8080/contarEquipos",
         type: "GET",
         dataType: "text",
         success: function(respuesta) {
