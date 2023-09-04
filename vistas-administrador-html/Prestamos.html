@@ -9,21 +9,23 @@
     <script src="https://kit.fontawesome.com/3d7a846b01.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="ruta/al/archivo/jquery.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body id="body" style="max-height: 100vh; overflow-y: scroll;">
     <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
+
+        </div>
+
     </header>
 
     <div class="menu__side" id="menu_side">
 
         <div class="options__menu"> 
 
-            <a href="/vistas-administrador-html/Equipos.html">
+            <a href="/vistas-administrador-html/Equipos.html" >
                 <div class="option">
                     <i class="fas fa-laptop"></i>
                     <h4>Equipos</h4>
@@ -77,81 +79,145 @@
             
         </div>
     </div>
+    
+    
 
     <section class="cont">
-        <div class="contenedor1">
-            <h1>Lista de préstamos</h1>
+
+        <div class="cabezera">
+            <h1>Lista de Prestamos</h1>
         </div>
-        <div class="contenedor2">
+        
+        <div class="contenedor1">
+            <button class="btnInsertar">Insertar</button>
+            <label for=""><input type="text" id="id_equipoo" name="id_equipoo" placeholder="equipo"></label>
+            <button type="button" id="BuscarPrestamo" class="btn btn-danger w-100 fs-5 mb-3">Buscar Prestamo</button>
+        </div>
+        
+        
+        <div class="contador1">Activos</div>
+
+        <div class="contador2">
+            <div class="icon-container">
+                <i class="fas fa-laptop"></i>
+                <h1 class="cantidad">No existen datos</h1>
+            </div>
+        </div>
+        
+
+        <div class="contador3">Inactivos</div>
+        
+
+        <div class="contenedor3">    
             <div>
-                <!-- Creación de tabla de datos -->
                 <table id="tabla1">
-                    <thead> 
-                        <tr>   
-                            <th>ID prestamo</th>
-                            <th>Fecha de Entrega</th>
-                            <th>Hora de Entrega</th>
-                            <th>Tiempo Límite</th>
-                            <th>Observaciones de Entrega</th>
-                            <th>Equipo ID</th>
-                            <th>Documento Usuarios</th>
+                    <thead>
+                        <tr>
+                            <th>ID PRESTAMO</th>
+                            <th>FECHA PRESTAMO</th>
+                            <th>HORA PRESTAMO</th>
+                            <th>TIEMPO</th>
+                            <th>OBSERVACION ENTREGA </th>
+                            <th>ID EQUIPO </th>
+                            <th>DOCUMENTO</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="tabla1-body"></tbody>
                 </table>
-                <!-- Final de la tabla -->
             </div>
         </div>
-        <div class="contenedor3">
-            <h1>InsertarPrestamos</h1>    
 
-            <form id="agregarPrestamoForm">
-                <!-- Los campos para ingresar los datos del préstamo -->
-                <input type="date" id="pres_Fec_Entrega" placeholder="Fecha de entrega" required>
-                <input type="text" id="pres_Hora_Entrega" placeholder="Hora de entrega" required>
-                <input type="text" id="pres_Tiempo_Limite" placeholder="Tiempo límite" required>
-                <input type="text" id="pres_Observaciones_Entrega" placeholder="Observaciones de entrega" required>
-                
-                <!-- Cambia los campos input por select -->
-                <select id="equipoId" required></select>
-                <select id="usuarioDocumento" required></select>
-                
-                <button type="submit" id="AgregarPrestamo">Agregar préstamo</button>
-            </form>
+        <!--modal1-->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Actualizar Registro</h2>
+                <form id="updateForm">
+                    <!-- Campos para actualizar los datos -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="equi_id_actualizar" name="equi_id_actualizar" placeholder="ID del Equipo">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" id="equi_tipo_actualizar" name="equi_tipo_actualizar">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="equi_modelo_actualizar" name="equi_modelo_actualizar" placeholder="Modelo">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="equi_color_actualizar" name="equi_color_actualizar" placeholder="Color">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="equi_serial_actualizar" name="equi_serial_actualizar" placeholder="Serial">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="equi_estado_actualizar" name="equi_estado_actualizar" placeholder="Estado">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="equi_especialidad_actualizar" name="equi_especialidad_actualizar" placeholder="Especialidad">
+                    </div>
+                    <div class="mb-3">
+                        <button type="button" id="ActualizarEquipo" class="btn btn-primary w-100 fs-5 mb-3">Actualizar Equipo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- ... -->
+
+
+        <!--modal2-->
+        <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <span class="close2">&times;</span>
+                <h2>Insertar Prestamo</h2>
+                <form id="insertForm">
+                    <div class="mb-3">
+                        <label for="pres_Fec_Entrega">Fecha de Entrega:</label>
+                        <input type="date" class="form-control" name="pres_Fec_Entrega" id="pres_Fec_Entrega" required>
+                    </div>
             
-
+                    <div class="mb-3">
+                        <label for="pres_Hora_Entrega">Hora de Entrega:</label>
+                        <input type="time" class="form-control" name="pres_Hora_Entrega" id="pres_Hora_Entrega" required>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="pres_Tiempo_Limite">Tiempo Límite:</label>
+                        <input type="text" class="form-control" name="pres_Tiempo_Limite" id="pres_Tiempo_Limite" required>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="pres_Observaciones_Entrega">Observaciones de Entrega:</label>
+                        <textarea class="form-control" name="pres_Observaciones_Entrega" id="pres_Observaciones_Entrega" required></textarea>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="equ_id_equipos">ID de Equipo:</label>
+                        <input type="text" class="form-control" name="equ_id_equipos" id="equ_id_equipos" required>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="usu_Documento_usurios">Documento de Usuario:</label>
+                        <input type="text" class="form-control" name="usu_Documento_usurios" id="usu_Documento_usurios" required>
+                    </div>
+            
+                    <div class="mb-3">
+                        <button type="button" id="AgregarPrestamo" class="btn btn-primary w-100 fs-5 mb-3">Insertar Prestamo</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="contenedor4">
-            <h1>ActualizarPrestamos</h1>  
-
-            <form id="agregarPrestamoForm">
-                <input type="date" id="fechaEntrega" placeholder="Fecha de entrega" required>
-                <input type="text" id="horaEntrega" placeholder="Hora de entrega" required>
-                <input type="text" id="tiempoLimite" placeholder="Tiempo límite" required>
-                <input type="text" id="observacionesEntrega" placeholder="Observaciones de entrega" required>
-                <input type="text" id="equipoId" placeholder="ID del equipo" required>
-                <input type="text" id="usuarioDocumento" placeholder="Documento del usuario" required>
-                <button type="submit" id="AgregarPrestamo">Agregar préstamo</button>
-            </form>
-
-        </div>
-
-        <div class="contenedor5">
-            <label for="">
-                <h1>Buscar préstamo</h1>
-                <input type="text" id="pres_idddd" name="pres_id" placeholder="ID del préstamo">
-            </label>
-            <button type="button" id="BuscarPrestamo" class="btn btn-danger w-100 fs-5 mb-3">Buscar</button>
-        </div>
-
-        <div class="contenedor6">
-            <h1>Eliminar el prestamo</h1><input type="text" id="id_prestamoo" name="id_prestamoo" placeholder="ID del préstamo"></label>
-            <button type="button" id="EliminarPrestamo" class="btn btn-danger w-100 fs-5 mb-3">Eliminar Prestamo</button>
-        </div>
+        
+          
+        <!---->
+        
+        
     </section>
 
+
+   
     <script src="/js/script.js"></script>
     <script src="/js/Metodos-Prestamos.js"></script>
+    <script src="/js/script3.js"></script>
 </body>
 </html>

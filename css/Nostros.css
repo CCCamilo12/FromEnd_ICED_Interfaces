@@ -162,7 +162,7 @@ p{
         transform: rotate(65deg) translateY(0px);
     }
     50%{
-        transform: rotate(65deg) translateY(20px);
+        transform: rotate(95deg) translateY(60px);
     }
     100%{
         transform: rotate(65deg) translateY(0px);
