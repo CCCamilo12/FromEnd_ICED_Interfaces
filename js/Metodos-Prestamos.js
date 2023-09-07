@@ -1,122 +1,72 @@
-(document).ready(function() {
-    // listar
-    function obtenerListaPrestamos() {
-        $.ajax({
-            url: "http://localhost:8080/ListarPrestamos",
-            type: "GET",
-            dataType: "json",
-            success: function(respuesta) {
-                console.log(respuesta);
-                let tablaBody = $("#tabla1-body");
-                tablaBody.empty(); // Limpiar el contenido anterior de la tabla
-    
-                respuesta.forEach(function(prestamo) {
-                    tablaBody.append(`<tr>
-                        <td>${prestamo.presId}</td>
-                        <td>${prestamo.pres_Fec_Entrega}</td>
-                        <td>${prestamo.pres_Hora_Entrega}</td>
-                        <td>${prestamo.pres_Tiempo_Limite}</td>
-                        <td>${prestamo.pres_Observaciones_Entrega}</td>
-                        <td>${prestamo.equ_id_equipos.equ_id}</td>
-                        <td>${prestamo.usu_Documento_usurios.usu_Documento}</td>
-                    </tr>`);
-                });
-            },
-            error: function() {
-                console.log("Error al obtener la lista de préstamos");
-            }
-        });
-    }
-    
-// Agregar un préstamo
 $(document).ready(function() {
-    // Manejador del botón AgregarPrestamo
-    $('#AgregarPrestamo').on('click', function(event) {
-        event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
 
-        // Obtener los valores del formulario
-        let pres_Fec_Entrega = $("#pres_Fec_Entrega").val();
-        let pres_Hora_Entrega = $("#pres_Hora_Entrega").val();
-        let pres_Tiempo_Limite = $("#pres_Tiempo_Limite").val();
-        let pres_Observaciones_Entrega = $("#pres_Observaciones_Entrega").val();
-        let equ_id_equipos = $("#equ_id_equipos").val();
-        let usu_Documento_usurios = $("#usu_Documento_usurios").val();
-        
-        if (pres_Fec_Entrega === '' || pres_Hora_Entrega === '' || pres_Tiempo_Limite === '' || pres_Observaciones_Entrega === '' || equ_id_equipos === '' || usu_Documento_usurios === '') {
-            alert("Por favor completa todos los campos");
-            return;
-        }
-
-        // Crear el objeto de datos del préstamo
-        let nuevoPrestamo = {
-            pres_Fec_Entrega: pres_Fec_Entrega,
-            pres_Hora_Entrega: pres_Hora_Entrega,
-            pres_Tiempo_Limite: pres_Tiempo_Limite,
-            pres_Observaciones_Entrega: pres_Observaciones_Entrega,
-            equipo: {
-                equ_id_equipos: equ_id_equipos
-            },
-            usuario: {
-                usu_Documento_usurios: usu_Documento_usurios
-            }
-        };
-
-        let datosenvio = JSON.stringify(nuevoPrestamo);
-
-        // Enviar la solicitud AJAX para agregar el préstamo
+let listaEqui = document.querySelector('#Eq')
+listaEqui.innerHTML = ''
         $.ajax({
-            url: `/insertarPrestamo/{Eq}/{Us}/${equ_id_equipos}/${usu_Documento_usurios}`,
-            type: "POST",
-            dataType: "json",
-            contentType: "application/json",
-            data: datosenvio,
+            url: "http://localhost:8080/listarEquipos",
+            type: "GET",
             success: function(respuesta) {
-                console.log(respuesta);
-                // Actualizar la lista de préstamos después de agregar uno nuevo
-                obtenerListaPrestamos();
-                // Restablecer los valores del formulario
-                $("#insertForm")[0].reset();
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log("Error al agregar el préstamo - Código de estado: " + jqXHR.status);
-                obtenerListaPrestamos();
-            }
-        });
-    });
-
-    // Llamar a la función para obtener la lista de préstamos al cargar la página
-    obtenerListaPrestamos();
-});
-});
-
-// Función para obtener la lista de préstamos
-function obtenerListaPrestamos() {
-    $.ajax({
-        url: "http://localhost:8080/ListarPrestamos",
-        type: "GET",
-        dataType: "json",
-        success: function(respuesta) {
-            console.log(respuesta);
-            let tablaBody = $("#tabla1-body");
-            tablaBody.empty(); // Limpiar el contenido anterior de la tabla
-
-            respuesta.forEach(function(prestamo) {
-                tablaBody.append(`<tr>
-                    <td>${prestamo.presId}</td>
-                    <td>${prestamo.fechaEntrega}</td>
-                    <td>${prestamo.pres_Tiempo_Limite}</td>
-                    <td>${prestamo.tiempoLimite}</td>
-                    <td>${prestamo.observacionesEntrega}</td>
-                    <td>${prestamo.equipo.equ_id}</td>
-                    <td>${prestamo.usuario.usu_Documento}</td>
-                </tr>`);
+                console.log(respuesta)
+               Object.values(respuesta).forEach(Equipo =>  {
+                listaEqui.innerHTML += '<option value="' + Equipo["equ_id"] +'">'
+                + Equipo["equ_id"]+' '+ Equipo ["equi_modelo"]+'</option>'
             });
-        },
-        error: function() {
-            console.log("Error al obtener la lista de préstamos");
-        }
-    });
-}
+    }
+});
+
+//Carga Select Usuarios
+
+let listaUsu = document.querySelector('#Us')
+        listaUsu.innerHTML = ''
+        $.ajax({
+            url: "http://localhost:8080/ListarUsuarios",
+            type: "GET",
+            datatype: "JSON",
+            success: function(respuesta) {
+                console.log(respuesta)
+                Object.values(respuesta).forEach(usuario => {
+                    listaUsu.innerHTML += '<option value="' +usuario["usu_Documento"] +'">'
+                    + usuario["usu_Nombre"] +' '+ usuario["usu_Apellido"]+'</option>';
+                });
+            }
+
+        });
+
+ 
+
+
+        $(document).ready(function() {
+            // Manejador del botón AgregarPrestamo
+            $('#AgregarPrestamo').on('click', function(event) {
+                let Equipo = $('#Eq option:selected').val();
+                let Usuario = $('#Us option:selected').val();
+        
+                // Objeto de datos que enviarás al servidor (en este caso, no es necesario especificar contentType)
+                let data = {
+                    Eq: Equipo,
+                    Us: Usuario
+                };
+                console.log(data)
+                $.ajax({
+                    url: "http://localhost:8080/insertarPrestamo/" + Equipo + "/" + Usuario,
+                    type: "POST",
+                    data: data, // Enviar datos como objeto JSON
+                    success: function(respuesta) {
+                        console.log(respuesta);
+                        alert(respuesta);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error("Error en la solicitud:", textStatus, errorThrown);
+                        alert("Error en la solicitud. Consulta la consola para obtener más detalles.");
+                    }
+                });
+            });
+        
+            // Llamar a la función para obtener la lista de préstamos al cargar la página
+        });
+        
+});
+
 
 //////////////////////////////Buscar Prestamo//////////////////////////////////////////////////////////////////////////////////////
 $('#BuscarPrestamo').on('click', function() {
